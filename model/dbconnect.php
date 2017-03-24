@@ -1,0 +1,4 @@
+Class DBase{
+	connect(){
+	}
+}
