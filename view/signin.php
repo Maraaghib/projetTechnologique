@@ -13,6 +13,6 @@
             <button type="submit" name="connexion">Connexion</button>
         </form>
 
-        <!--script type="text/javascript" src="myScript.js"></script-->
+        <script type="text/javascript" src="dist/js/myScript.js"></script>
     </body>
 </html>

@@ -10,12 +10,10 @@
             <input type="text" name="nom" value="" placeholder="Entrer votre nom" required><br><br>
             <label for="">Prénom:</label>
             <input type="text" name="prenom" value="" placeholder="Entrer votre prénom" required><br><br>
-            <label for="">Email:</label>
-            <input type="email" name="email" value="" placeholder="Entrer votre email" required><br><br>
-            <label for="">Date de naissance</label>
-            <input type="date" name="dateNaiss" value="" placeholder="dd/mm/yyyy" required><br><br>
+            <label for="">Date de naissance:</label>
+            <input type="date" name="dateNaiss" value="" required><br><br>
             <label for="">Téléphone:</label>
-            <input type="tel" id="telPerso" name="telPerso" value="" placeholder="Numéro de téléphone" required><br><br>
+            <input type="num" id="telPerso" name="telPerso" value="" placeholder="Numéro de téléphone" required><br><br>
             <label for="">Login:</label>
             <input type="text" id="login" name="login" placeholder="Donner votre login" required><br><br>
             <label for="">Mot de passe:</label>
@@ -25,6 +23,6 @@
             <button type="submit" name="inscription">Inscription</button>
         </form>
 
-        <script type="text/javascript" src="js/myScript.js"></script>
+        <script type="text/javascript" src="dist/js/myScript.js"></script>
     </body>
 </html>
