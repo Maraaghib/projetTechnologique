@@ -1,4 +1,0 @@
-Class DBase{
-	connect(){
-	}
-}
