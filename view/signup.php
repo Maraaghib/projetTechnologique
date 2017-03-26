@@ -29,14 +29,14 @@
         </div> <!-- container header -->
 
         <div class="container content">
-            <form class="form-horizontal" action="#" method="post">
-                <!--<div class="form-group form-group-lg">
-                    <label for="" class="control-label control-label-lg">Nom:</label>
-                    <input type="text" class="form-control" name="nom" value="" placeholder="Entrer votre nom" required>
-                </div>
+            <form class="form-horizontal" action="../controller/signup.php" method="post">
                 <div class="form-group form-group-lg">
                     <label for="" class="control-label label-lg">Prénom:</label>
                     <input type="text" class="form-control" name="prenom" value="" placeholder="Entrer votre prénom" required>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label for="" class="control-label control-label-lg">Nom:</label>
+                    <input type="text" class="form-control" name="nom" value="" placeholder="Entrer votre nom" required>
                 </div>
                 <div class="form-group form-group-lg">
                     <label for="" class="control-label label-lg">E-mail:</label>
@@ -46,21 +46,22 @@
                     <label for="" class="control-label label-lg">Date de naissance:</label>
                     <input type="date" class="form-control" name="dateNaiss" value="" required>
                 </div>
-                <div class="form-group form-group-lg">
+                <div class="form-group form-group-lg" id="telPersoDiv">
                     <label for="" class="control-label label-lg">Téléphone:</label>
-                    <input type="num" class="form-control" id="telPerso" name="telPerso" value="" placeholder="Numéro de téléphone" required>
+                    <input type="num" class="form-control" id="telPerso" name="telPerso" onblur="inputValidation('tel')" placeholder="Numéro de téléphone" required>
+                    <span class="help-block" id="helpTel"></span>
                 </div>
                 <div class="form-group form-group-lg">
                     <label for="" class="control-label label-lg">Identifiant:</label>
                     <input type="text" class="form-control" id="login" name="login" placeholder="Donner votre login" required>
-                </div>-->
+                </div>
                 <div class="form-group form-group-lg">
                     <label for="" class="control-label label-lg">Mot de passe:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="**************" required>
                 </div>
                 <div class="form-group form-group-lg" id="confirmPasswordDiv">
                     <label for="" class="control-label label-lg">Confirmation du mot de passe:</label>
-                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" onblur="validatePassword()"  placeholder="**************">
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" onblur="inputValidation('confirmPassword')"  placeholder="**************">
                     <span class="help-block" id="helpConfirmPassword"></span>
                 </div>
                 <div class="form-group form-group-lg">
