@@ -7,7 +7,7 @@
       private $userOnline;
 
       public function UserBroker() { //créé un user avec le login et le password pour se connecter au dbserver
-         $this->userOnline = new User;
+         $this->userOnline = new User();
          $this->config = parse_ini_file('../private/config.ini');
       }
 
@@ -69,7 +69,7 @@
             echo '<h1>Le login et/ou le mot de passe est incorrect !</h1>';
          }
          else{
-            $infosUser = $result3->fetch(); 
+            $infosUser = $result3->fetch();
             $oneUser = new User;
             $oneUser->hydrate($infosUser);
          }
@@ -83,7 +83,7 @@
          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $query = "SELECT * FROM user_account";
          $results = $db->query($query);
-         
+
          while($donnees = $results->fetch()){
             $abonnes[] = hydrate($donnees);
          }
