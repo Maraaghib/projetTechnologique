@@ -34,36 +34,36 @@
                 <div class="row">
                     <div class="col-xs-offset-1 col-xs-10">
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">Prénom:</label>
-                            <input type="text" class="form-control" name="prenom" value="" placeholder="Entrer votre prénom" required>
+                            <label id="label-lg" for="" class="control-label label-lg">Prénom:</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" value="" placeholder="Entrer votre prénom" required>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label control-label-lg">Nom:</label>
-                            <input type="text" class="form-control" name="nom" value="" placeholder="Entrer votre nom" required>
+                            <label id="label-lg" for="" class="control-label control-label-lg">Nom:</label>
+                            <input type="text" class="form-control" id="nom" name="nom" value="" placeholder="Entrer votre nom" required>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">E-mail:</label>
-                            <input type="email" class="form-control" name="email" value="" placeholder="Entrer votre e-mail" required>
+                            <label id="label-lg" for="" class="control-label label-lg">E-mail:</label>
+                            <input type="email" class="form-control" id="email" name="email" value="" placeholder="Entrer votre e-mail" required>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">Date de naissance:</label>
-                            <input type="date" class="form-control" name="dateNaiss" value="" required>
+                            <label id="label-lg" for="" class="control-label label-lg">Date de naissance:</label>
+                            <input type="date" class="form-control" id="dateNaiss" name="dateNaiss" value="" required>
                         </div>
                         <div class="form-group form-group-lg" id="telPersoDiv">
-                            <label for="" class="control-label label-lg">Téléphone:</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Téléphone:</label>
                             <input type="num" class="form-control" id="telPerso" name="telPerso" onblur="inputValidation('tel')" placeholder="Numéro de téléphone" required>
                             <span class="help-block" id="helpTel"></span>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">Identifiant:</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Identifiant:</label>
                             <input type="text" class="form-control" id="login" name="login" placeholder="Donner votre login" required>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">Mot de passe:</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Mot de passe:</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="**************" required>
                         </div>
                         <div class="form-group form-group-lg" id="confirmPasswordDiv">
-                            <label for="" class="control-label label-lg">Confirmation du mot de passe:</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Confirmation du mot de passe:</label>
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" onblur="inputValidation('confirmPassword')"  placeholder="**************">
                             <span class="help-block" id="helpConfirmPassword"></span>
                         </div>
