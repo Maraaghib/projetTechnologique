@@ -28,21 +28,35 @@
 
         <div class="container header">
             <div class="page-header text-center">
-                <h1>Bienvenue sur la plateforme de la Mairie</h1>
+                <h1>Bienvenue sur le forum des handicapés et séniors</h1>
             </div>
         </div> <!-- container header -->
 
         <div class="container content">
             <form class="form-horizontal" id="homeForm" action="#" method="post">
                 <div class="row">
-                    <div class="form-group form-group-lg">
-                        <div class="">
-                            <center><button type="submit" class="btn btn-default btn-lg" id="signin" name="signin" onclick="actionForm('signin.php')"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></center>
+                    <div class="col-xs-6">
+                        <div class="dropdown text-right">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="signin">
+                                <li class="dropdown-header">En tant que:</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signin.php">Handicapé ou sénior</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signin.php">Bénévole</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="form-group form-group-lg">
-                        <div class="">
-                            <center><button type="submit" class="btn btn-default btn-lg" id="signup" name="signup" onclick="actionForm('signup.php')"><span class="glyphicon glyphicon-user"></span> Inscription</button></center>
+                    <div class="col-xs-6">
+                        <div class="dropdown text-left">
+                            <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</button>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="signup">
+                                <li class="dropdown-header">En tant que:</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signup.php">Handicapé ou sénior</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signup.php">Bénévole</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
