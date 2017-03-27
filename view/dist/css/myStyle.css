@@ -3,10 +3,10 @@ body{
 }
 
 form {
-    border: 3px solid #f1f1f1;
 	margin-bottom: 100px;
 	padding-top: 70px;
 	padding-bottom: 70px;
+	font-size: 30px;
 }
 
 .imgcontainer {
@@ -19,9 +19,77 @@ img.avatar {
 	border-radius: 50%;
 }
 
-input {
-    margin: 8px 0;
+/* Agrandissement des objets du site */
+
+.page-header h1{
+	font-size: 70px;
+	font-weight: bold;
 }
+
+.btn-lg{
+    padding-left: 20px;
+    padding-right: 25px;
+    width: 75%;
+    height: 25%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+	font-size: 45px;
+	font-weight: bold;
+}
+
+.dropdown-menu{
+	width: 75%;
+	font-size: 40px;
+}
+
+.dropdown-header{
+	font-size: 40px;
+}
+
+#label-lg {
+	font-size: 30px;
+}
+
+#prenom, #nom, #email, #dateNaiss, #telPerso, #login, #password, #confirmPassword {
+    margin: 8px 0;
+    height: 25%;
+	font-size: 45px;
+}
+
+
+@media only screen and (max-width: 992px) {
+	.page-header h1{
+		font-size: 50px;
+		font-weight: bold;
+	}
+
+	.btn-lg{
+	    padding-left: 20px;
+	    padding-right: 25px;
+	    width: 185px;
+	    height: 25%;
+	    padding-bottom: 20px;
+	    padding-top: 20px;
+		font-size: 24px;
+	}
+
+	.dropdown-menu{
+		width: 190px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	.dropdown-header{
+		font-size: 18px;
+	}
+
+	#prenom, #nom, #email, #dateNaiss, #telPerso, #login, #password, #confirmPassword {
+	    margin: 8px 0;
+	    height: 25%;
+		font-size: 24px;
+	}
+}
+
 /*
 .navigation{
 	float: left;
