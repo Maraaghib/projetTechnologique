@@ -8,6 +8,11 @@ var confirmPassword = document.getElementById("confirmPassword");
 
 // Créer deux fonctions respectivement pour les blocc if (success) et pour les blocs else (error)
 
+function actionForm(action) {
+	var homeForm = document.getElementById("homeForm");
+	homeForm.setAttribute("action", action);
+}
+
 function inputValidation(type){
 	if(type == "confirmPassword") {
 		if(password.value != confirmPassword.value) {
