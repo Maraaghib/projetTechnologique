@@ -1,6 +1,27 @@
 body{
 	padding-top: 90px;
 }
+
+form {
+    border: 3px solid #f1f1f1;
+	margin-bottom: 100px;
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.imgcontainer {
+	text-align: center;
+	margin: 24px 0 12px 0;
+}
+
+img.avatar {
+	width: 30%;
+	border-radius: 50%;
+}
+
+input {
+    margin: 8px 0;
+}
 /*
 .navigation{
 	float: left;
