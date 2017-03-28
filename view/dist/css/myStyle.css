@@ -50,7 +50,7 @@ img.avatar {
 	font-size: 30px;
 }
 
-#prenom, #nom, #email, #dateNaiss, #telPerso, #selectCountryAddr, #login, #password, #confirmPassword {
+#prenom, #nom, #email, #dateNaiss, #telPerso, #selectCountryAddr, #codePostal, #login, #password, #confirmPassword {
     margin: 8px 0;
     height: 25%;
 	font-size: 45px;
@@ -83,7 +83,7 @@ img.avatar {
 		font-size: 18px;
 	}
 
-	#prenom, #nom, #email, #dateNaiss, #telPerso, #selectCountryAddr, #login, #password, #confirmPassword {
+	#prenom, #nom, #email, #dateNaiss, #telPerso, #selectCountryAddr, #codePostal, #login, #password, #confirmPassword {
 	    margin: 8px 0;
 	    height: 25%;
 		font-size: 24px;
