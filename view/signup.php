@@ -50,8 +50,17 @@
                             <input type="num" class="form-control" id="telPerso" name="telPerso" onblur="inputValidation('tel')" placeholder="Numéro de téléphone" required>
                             <span class="help-block" id="helpTel"></span>
                         </div>
+                        <div class="form-group form-group-lg" id="genderDiv">
+                            <label id="label-lg" for="" class="control-label label-lg">Sexe:</label>
+                            <select class="form-control text-right" id="gender" name="gender" onblur="inputValidation('gender')" required>
+                                <option value="">Sélectionnez</option>
+                                <option value="male">Masculin</option>
+                                <option value="female">Féminin</option>
+                            </select>
+                            <span class="help-block" id="helpVille"></span>
+                        </div>
                         <div class="form-group form-group-lg" id="CountryDiv">
-                            <label id="label-lg" for="" class="control-label label-lg">Pays</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Pays:</label>
                             <select class="form-control" id="selectCountryAddr" name="selectCountryAddr" required>
                                 <option value="212">AFGHANISTAN</option>
                                 <option value="303">AFRIQUE DU SUD</option>
@@ -269,10 +278,23 @@
                             </select>
                             <span class="help-block" id="helpCountry"></span>
                         </div>
-                        <div class="form-group form-group-lg" id="telPersoDiv">
-                            <label id="label-lg" for="" class="control-label label-lg">Code Postal:</label>
-                            <input type="num" class="form-control" id="codePostal" name="codePostal" onblur="inputValidation('codePostal')" placeholder="XXXXX" required>
-                            <span class="help-block" id="helpCodePostal"></span>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <div class="form-group form-group-lg text-left" id="codePostalDiv">
+                                    <label id="label-lg" for="" class="control-label label-lg">Code Postal:</label>
+                                    <input type="num" class="form-control" id="codePostal" name="codePostal" onblur="inputValidation('codePostal')" placeholder="XXXXX" required>
+                                    <span class="help-block" id="helpCodePostal"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-offset-1 col-xs-8">
+                                <div class="form-group form-group-lg" id="villeDiv">
+                                    <label id="label-lg" for="" class="control-label label-lg">Ville:</label>
+                                    <select class="form-control text-right" id="ville" name="ville" onblur="inputValidation('ville')" required>
+                                        <option value="">Sélectionner une ville</option>
+                                    </select>
+                                    <span class="help-block" id="helpVille"></span>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Date de naissance:</label>
@@ -280,7 +302,7 @@
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Identifiant:</label>
-                            <input type="text" class="form-control" id="login" name="login" placeholder="Donner votre login" required>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="Choisissez un identifiant" required>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Mot de passe:</label>
