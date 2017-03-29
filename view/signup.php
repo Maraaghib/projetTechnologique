@@ -279,14 +279,14 @@
                             <span class="help-block" id="helpCountry"></span>
                         </div>
                         <div class="row">
-                            <div class="col-xs-3">
+                            <div class="col-md-3">
                                 <div class="form-group form-group-lg text-left" id="codePostalDiv">
                                     <label id="label-lg" for="" class="control-label label-lg">Code Postal:</label>
                                     <input type="num" class="form-control" id="codePostal" name="codePostal" onblur="inputValidation('codePostal')" placeholder="XXXXX" required>
                                     <span class="help-block" id="helpCodePostal"></span>
                                 </div>
                             </div>
-                            <div class="col-xs-offset-1 col-xs-8">
+                            <div class="col-md-offset-1 col-md-8">
                                 <div class="form-group form-group-lg" id="villeDiv">
                                     <label id="label-lg" for="" class="control-label label-lg">Ville:</label>
                                     <select class="form-control text-right" id="ville" name="ville" onblur="inputValidation('ville')" required>
