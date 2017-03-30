@@ -1,5 +1,5 @@
 body{
-	padding-top: 90px;
+	padding-top: 100px;
 }
 
 form {
@@ -19,14 +19,69 @@ img.avatar {
 	border-radius: 50%;
 }
 
+.container-fluid {
+	font-size: 30px;
+	/*padding-right: 50px;*/
+}
+
+.navbar-default .navbar-nav > li > a, .navbar-btn {
+	background-color: #8f9cc6;
+	color: #fff;
+	font-size: 30px;
+	margin: 20px 10px 20px 10px;
+}
+
+img.logo {
+	width: 90px;
+	margin-top: -13px;
+}
+
+
+.navbar-default .navbar-nav > li > a:hover {
+	background-color: #fff;
+	color: #8f9cc6	;
+}
+
+@media only screen and (max-width: 803px) and (min-width: 768px) {
+	.navbar-default .navbar-nav > li > a, .navbar-btn {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#cacher {
+		display: none;
+	}
+
+	.navbar-default .navbar-nav > li > a, .navbar-btn {
+		width: 280px;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+
+	body{
+		padding-top: 150px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.navbar-default .navbar-nav > li > a, .navbar-btn {
+	    margin-left: 120px;
+		margin-top: -33px;
+	}
+}
+
 /* Agrandissement des objets du site */
 
 .page-header h1{
 	font-size: 60px;
+	color: #305395;
 	font-weight: bold;
 }
 
 .btn-lg{
+	background-color: #f0b90e;
+	color: #000;
     padding-left: 20px;
     padding-right: 25px;
     width: 60%;
@@ -35,6 +90,10 @@ img.avatar {
     padding-top: 20px;
 	font-size: 45px;
 	font-weight: bold;
+}
+.btn-lg:hover{
+	background-color: #fff;
+	color: #f0b90e;
 }
 
 .dropdown-menu{
@@ -57,7 +116,7 @@ img.avatar {
 }
 
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
 	.page-header h1{
 		font-size: 50px;
 		font-weight: bold;
