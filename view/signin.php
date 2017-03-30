@@ -40,11 +40,11 @@
                             <img src="img/avatars/img_avatar1.png" class="avatar" alt="Avatar">
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label label-lg">Identifiant</label>
+                            <label id="label-lg" for="" class="control-label label-lg">Identifiant</label>
                             <input type="text" class="form-control" id="login" name="prenom" placeholder="Entrer votre identifiant" required>
                         </div>
                         <div class="form-group form-group-lg">
-                            <label for="" class="control-label control-label-lg">Mot de passe</label>
+                            <label id="label-lg" for="" class="control-label control-label-lg">Mot de passe</label>
                             <input type="password" class="form-control" id="password" name="password" value="" placeholder="**************" required>
                         </div>
                         <div class="form-group form-group-lg">
