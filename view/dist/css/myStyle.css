@@ -31,6 +31,17 @@ img.avatar {
 	margin: 20px 10px 20px 10px;
 }
 
+#cacher {
+	background-color: #f8f8f8;
+	color: #305395;
+	border: none;
+}
+
+#cacher:hover {
+	 border: 1px solid;
+	 border-color: #305395;
+}
+
 img.logo {
 	width: 90px;
 	margin-top: -13px;
