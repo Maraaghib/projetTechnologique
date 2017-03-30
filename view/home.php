@@ -14,14 +14,33 @@
         <div class="container navigation">
             <div class="row navigation">
                <nav class="navbar navbar-default navbar-fixed-top">
-                   <ol class="breadcrumb">
-                       <li><a href="#"><img class="logo"></a></li> <!-- On peut ajouter l'image via le background du CSS -->
+                   <!--<ol class="breadcrumb" style="float: left;">
+                       <li><a href="#"><img class="logo"></a></li>  On peut ajouter l'image via le background du CSS
                    </ol>
-                   <div class="navbar-collapse collapse navbar-right">
-                       <ul class="nav navbar-nav">
+                   <div class="navbar-collapse collapse">
+                       <ul class="nav navbar-nav navbar-right">
+                           <li><a href="signup.php" class="btn btn-default navbar-btn" name="">Devenir bénévole</a><li>
 
                        </ul>
-                   </div>
+                   </div>-->
+
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="home.php">
+                                <img src="img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo">
+                            </a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <!-- <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li> -->
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="signin.php" class="btn btn-default navbar-btn" id="cacher">Se connecter</a></li>
+                            <li><a href="signup.php" class="btn btn-default navbar-btn" id="cacher">S'inscrire</a></li>
+                            <li><a href="signup.php" class="btn btn-default navbar-btn">Devenir bénévole</a><li>
+                        </ul>
+                    </div>
                </nav>
            </div> <!-- row navigation -->
         </div> <!-- container navigation -->
