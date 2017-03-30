@@ -22,15 +22,15 @@ img.avatar {
 /* Agrandissement des objets du site */
 
 .page-header h1{
-	font-size: 70px;
+	font-size: 60px;
 	font-weight: bold;
 }
 
 .btn-lg{
     padding-left: 20px;
     padding-right: 25px;
-    width: 75%;
-    height: 25%;
+    width: 60%;
+    /*height: 25%;*/
     padding-bottom: 20px;
     padding-top: 20px;
 	font-size: 45px;
