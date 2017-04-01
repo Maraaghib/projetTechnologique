@@ -289,8 +289,9 @@
                             <div class="col-md-offset-1 col-md-8">
                                 <div class="form-group form-group-lg" id="villeDiv">
                                     <label id="label-lg" for="" class="control-label label-lg">Ville:</label>
-                                    <select class="form-control text-right" id="ville" name="ville" onblur="inputValidation('ville')" required>
+                                    <select class="form-control text-right" id="ville" name="ville" onblur="inputValidation('ville')">
                                         <option value="">Sélectionner une ville</option>
+                                        <option value="begles">Bègles</option>
                                     </select>
                                     <span class="help-block" id="helpVille"></span>
                                 </div>
