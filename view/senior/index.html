@@ -149,11 +149,11 @@
             }
 
             input[type=text] {
-                width: 130px;
+                width: 265px;
                 box-sizing: border-box;
                 border: 2px solid #ccc;
-                border-radius: 4px;
-                font-size: 16px;
+                border-radius: 4px 0px 0px 4px;
+                font-size: 30px;
                 background-color: white;
                 /*background-image: url('searchicon.png');
                 background-position: 10px 10px;
@@ -161,58 +161,77 @@
                 padding: 12px 20px 12px 40px;
                 -webkit-transition: width 0.4s ease-in-out;
                 transition: width 0.4s ease-in-out;
-                margin-right: auto;
-                margin-left: auto;
+                /**/
+                /*margin-right: auto;*/
+                float: right;
+            }
+
+            .formSearch {
+                width: 100%;
+                margin-bottom: 0px;
+                padding-top: 0px;
+                padding-bottom: 0px;
+                margin-bottom: 7px;
+            }
+
+             .divSearch {
+                 margin-top: 15px;
+                 margin-bottom: 7px;
+             }
+
+            #btnSearch {
+                border: 2px solid #ccc;
+                border-left: 0px;
+                font-size: 30px;
+                padding-top: 12px;
+                padding-bottom: 12px;
             }
 
             input[type=text]:focus {
                 width: 80%;
             }
+
+
+             @media (max-width: 767px) {
+                 .divSearch {
+                     margin-right: auto;
+                     margin-left: auto;
+                     width: 55%;
+                 }
+
+                 input[type=text] {
+                     width: 100%;
+                 }
+
+                 input[type=text]:focus {
+                     width: 100%;
+                 }
+
+             }
         </style>
     </head>
     <body>
         <nav class="navbar navbar-default navbar-fixed-top">
-            <!--<ol class="breadcrumb" style="float: left;">
-            <li><a href="#"><img class="logo"></a></li>  On peut ajouter l'image via le background du CSS
-            </ol>
-            <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="signup.php" class="btn btn-default navbar-btn" name="">Devenir bénévole</a><li>
-
-            </ul>
-            </div>-->
-
             <div class="container-fluid">
-                <div class="row">
-                    <div class="navbar-header col-xs-2">
-                        <a class="navbar-brand" href="home.php">
-                            <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo">
-                        </a>
-                    </div>
-                    <!-- <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                    </ul>-->
-                    <!-- <ul class="nav navbar-nav navbar-right">
-                        <li><a href="signin.php" class="btn btn-default navbar-btn" id="cacher">Se connecter</a></li>
-                        <li><a href="signup.php" class="btn btn-default navbar-btn" id="cacher">S'inscrire</a></li>
-                        <li><a href="#" class="btn btn-default navbar-btn">Search</a><li>
-                    </ul>-->
-                    <div class="col-xs-8">
-                        <input type="text" name="search" placeholder="Rechercher ...">
-                    </div>
-
-                    <div class="col-xs-2">
-                        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
-                    </div>
+                <div class="navbar-header col-xs-2">
+                    <a class="navbar-brand" href="home.php">
+                        <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo">
+                    </a>
                 </div>
+
+                <form class="formSearch" action="#" method="post">
+                    <div class="input-group divSearch">
+                        <input type="text" name="search" placeholder="Rechercher ...">
+                        <span class="input-group-btn">
+                            <button type="button" name="btnSearch" id="btnSearch" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                        </span>
+                    </div>
+                </form>
+
+                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             </div>
         </nav>
         <nav class="nav-side-menu">
-            <!-- <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo"> -->
-
-
             <div class="menu-list">
                 <ul id="menu-content" class="menu-content collapse out">
                     <li class="active">
@@ -224,7 +243,7 @@
                     </li>
                     <ul class="sub-menu collapse" id="new">
                         <li class="active"><a href="#">Reçus</li>
-                        <li><a href="#">Envoyé</a></li>
+                        <li><a href="#">Envoyés</a></li>
                     </ul>
 
                     <li  data-toggle="collapse" data-target="#products" class="collapsed">
