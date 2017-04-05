@@ -181,9 +181,14 @@
                 display: none;
             }
 
-             @media (max-width: 767px) {
+            @media (max-width: 1050px) {
+                input[type=text]:focus {
+                    width: 60%;
+                }
+            }
+            @media (max-width: 767px) {
                  .nav-side-menu {
-                     top: 158px;
+                     top: 68px;
                      position: relative;
                      width: 100%;
                      margin-bottom: 10px;
@@ -195,7 +200,7 @@
                     padding-top: 7px;
                     position: absolute;
                     right: -45px;
-                    top: 10px;
+                    top: 7px;
                 }
 
                 .navbar-default .navbar-toggle .icon-bar {
@@ -213,28 +218,28 @@
 
                  /*****************************************/
                  .divSearch {
-                     margin-right: auto;
+                     margin-right: 15px;;
                      margin-left: auto;
                      width: 55%;
                  }
 
                  input[type=text] {
                      width: 100%;
-                     font-size: 25px;
-                     padding: 4px 20px 3px 40px;
+                     font-size: 20px;
+                     padding: 4px 0px 3px 0px;
                  }
 
                  input[type=text]:focus {
-                     width: 100%;
+                     width: 195%;
                  }
 
                  #btnSearch {
                      color: #1a3ec1;
                      border: 1px solid #1a3ec1;
                      border-left: 0px;
-                     font-size: 25px;
-                     padding-top: 4px;
-                     padding-bottom: 3px;
+                     font-size: 21px;
+                     padding-top: 5px;
+                     padding-bottom: 0px;
                  }
 
                  .btn-log-out{
@@ -246,9 +251,9 @@
                     border: 1px solid #1a3ec1;
                  	color: #1a3ec1;
                     width: 50px;
-                    padding-bottom: 0px;
+                    padding-bottom: 1px;
                     padding-top: 5px;
-                	font-size: 25px;
+                	font-size: 20px;
                     margin-top: 15px;
                     display: block;
                     cursor: pointer;
@@ -257,11 +262,7 @@
                  }
 
              }
-             @media (max-width: 1050px) {
-                 input[type=text]:focus {
-                     width: 60%;
-                 }
-             }
+
         </style>
     </head>
     <body>
