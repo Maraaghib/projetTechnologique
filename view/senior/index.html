@@ -6,29 +6,21 @@
         <title>Mairie de Bègles | Accueil</title>
     	<link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="../dist/font-awesome-4.7.0/css/font-awesome.min.css">
-    	<link rel="stylesheet" type="text/css" href="../dist/css/myStyle.css"/>
+    	<!-- <link rel="stylesheet" type="text/css" href="../dist/css/myStyle.css"/> -->
         <style media="screen">
             .nav-side-menu {
                 overflow: auto;
                 font-family: verdana;
                 font-size: 35px;
                 font-weight: 200;
-                background-color: #305395;
+                background-color: #1a3ec1;
                 position: fixed;
                 top: 93px;
                 width: 350px;
                 height: 100%;
                 color: #e1ffff;
             }
-            /* Logo */
-            .nav-side-menu .brand {
-                height: 100px;
-                background-color: #23282e;
-                line-height: 50px;
-                display: block;
-                text-align: center;
-                font-size: 14px;
-            }
+
             .container-fluid .toggle-btn {
                 display: none;
             }
@@ -53,8 +45,8 @@
             }
             .nav-side-menu ul .active,
             .nav-side-menu li .active {
-                border-left: 3px solid #d19b3d;
-                background-color: #4f5b69;
+                border-left: 7px solid #d19b3d;
+                /*background-color: #1a29d8;*/
             }
             .nav-side-menu ul .sub-menu li.active,
             .nav-side-menu li .sub-menu li.active {
@@ -89,12 +81,12 @@
                 padding-top: 15px;
                 padding-bottom: 15px;
                 padding-left: 0px;
-                border-left: 3px solid #2e353d;
+                border-left: 7px solid #1a3ec1;
                 border-bottom: 1px solid #23282e;
             }
             .nav-side-menu li a {
                 text-decoration: none;
-                color: #e1ffff;
+                color: #fff;
             }
             .nav-side-menu li a i {
                 margin-right: 40px;
@@ -103,40 +95,13 @@
                 padding-right: 20px;
             }
             .nav-side-menu li:hover {
-                border-left: 3px solid #d19b3d;
-                background-color: #4f5b69;
-                -webkit-transition: all 1s ease;
+                border-left: 7px solid #d19b3d;
+                /*background-color: #d19b3d;*/
+                /*-webkit-transition: all 1s ease;
                 -moz-transition: all 1s ease;
                 -o-transition: all 1s ease;
                 -ms-transition: all 1s ease;
-                transition: all 1s ease;
-            }
-            @media (max-width: 767px) {
-                .nav-side-menu {
-                    top: 158px;
-                    position: relative;
-                    width: 100%;
-                    margin-bottom: 10px;
-                }
-                .container-fluid .toggle-btn {
-                    display: block;
-                    cursor: pointer;
-                    position: absolute;
-                    right: 40px;
-                    top: 10px;
-                    z-index: 10 !important;
-                    padding: 3px;
-                    /*background-color: #000;*/
-                    color: #305395;
-                    width: 40px;
-                    text-align: center;
-                }
-                .brand {
-                    text-align: left !important;
-                    font-size: 22px;
-                    padding-left: 20px;
-                    line-height: 50px !important;
-                }
+                transition: all 1s ease;*/
             }
             @media (min-width: 767px) {
                 .nav-side-menu .menu-list .menu-content {
@@ -151,7 +116,7 @@
             input[type=text] {
                 width: 265px;
                 box-sizing: border-box;
-                border: 2px solid #ccc;
+                border: 1px solid #1a3ec1;
                 border-radius: 4px 0px 0px 4px;
                 font-size: 30px;
                 background-color: white;
@@ -164,6 +129,10 @@
                 /**/
                 /*margin-right: auto;*/
                 float: right;
+            }
+
+            input[type=text]:focus {
+                width: 80%;
             }
 
             .formSearch {
@@ -180,19 +149,69 @@
              }
 
             #btnSearch {
-                border: 2px solid #ccc;
+                color: #1a3ec1;
+                border: 1px solid #1a3ec1;
                 border-left: 0px;
                 font-size: 30px;
                 padding-top: 12px;
                 padding-bottom: 12px;
             }
 
-            input[type=text]:focus {
-                width: 80%;
+            .btn-log-out {
+            	background-color: #fff;
+                border: 1px solid #1a3ec1;
+            	color: #1a3ec1;
+                padding-left: 20px;
+                padding-right: 25px;
+                width: 315px;
+                /*height: 25%;*/
+                padding-bottom: 7px;
+                padding-top: 7px;
+            	font-size: 35px;
+                margin-top: 15px;
+                cursor: pointer;
+            }
+            .btn-log-out:hover {
+            	background-color: #1a3ec1;
+            	color: #fff;
             }
 
+            .toggle-btn-log-out {
+
+                display: none;
+            }
 
              @media (max-width: 767px) {
+                 .nav-side-menu {
+                     top: 158px;
+                     position: relative;
+                     width: 100%;
+                     margin-bottom: 10px;
+                 }
+
+                .navbar-default .navbar-toggle {
+                    border: 1px solid #1a3ec1;
+                    padding-bottom: 7px;
+                    padding-top: 7px;
+                    position: absolute;
+                    right: -45px;
+                    top: 10px;
+                }
+
+                .navbar-default .navbar-toggle .icon-bar {
+                    background-color: #1a3ec1;
+                    width: 25px;
+                    height: 4px;
+                }
+
+                 .brand {
+                     text-align: left !important;
+                     font-size: 22px;
+                     padding-left: 20px;
+                     line-height: 50px !important;
+                 }
+
+                 /*****************************************/
                  .divSearch {
                      margin-right: auto;
                      margin-left: auto;
@@ -201,12 +220,47 @@
 
                  input[type=text] {
                      width: 100%;
+                     font-size: 25px;
+                     padding: 4px 20px 3px 40px;
                  }
 
                  input[type=text]:focus {
                      width: 100%;
                  }
 
+                 #btnSearch {
+                     color: #1a3ec1;
+                     border: 1px solid #1a3ec1;
+                     border-left: 0px;
+                     font-size: 25px;
+                     padding-top: 4px;
+                     padding-bottom: 3px;
+                 }
+
+                 .btn-log-out{
+                     display: none;
+                 }
+
+                 .toggle-btn-log-out {
+                 	background-color: #fff;
+                    border: 1px solid #1a3ec1;
+                 	color: #1a3ec1;
+                    width: 50px;
+                    padding-bottom: 0px;
+                    padding-top: 5px;
+                	font-size: 25px;
+                    margin-top: 15px;
+                    display: block;
+                    cursor: pointer;
+                    position: absolute;
+                    text-align: center;
+                 }
+
+             }
+             @media (max-width: 1050px) {
+                 input[type=text]:focus {
+                     width: 60%;
+                 }
              }
         </style>
     </head>
@@ -214,21 +268,29 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header col-xs-2">
-                    <a class="navbar-brand" href="home.php">
-                        <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo">
-                    </a>
+                    <a class="btn btn-default toggle-btn-log-out" href="#"><span class="glyphicon glyphicon-log-out"></span></a>
+                    <a class="btn btn-default btn-log-out" href="#"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+                    <!-- <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo"> -->
+                </div>
+                <div class="col-xs-10">
+                    <form class="formSearch" action="#" method="post">
+                        <div class="input-group divSearch">
+                            <input type="text" name="search" placeholder="Rechercher ...">
+                            <span class="input-group-btn">
+                                <button type="button" name="btnSearch" id="btnSearch" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div>
+                    </form>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-content">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
 
-                <form class="formSearch" action="#" method="post">
-                    <div class="input-group divSearch">
-                        <input type="text" name="search" placeholder="Rechercher ...">
-                        <span class="input-group-btn">
-                            <button type="button" name="btnSearch" id="btnSearch" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
-                </form>
 
-                <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+                <!-- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
             </div>
         </nav>
         <nav class="nav-side-menu">
@@ -269,6 +331,8 @@
                 </ul>
             </div>
         </nav>
+
+
 
         <script type="text/javascript" src="../dist/js/myScript.js"></script>
         <script type="text/javascript" src="../dist/js/jquery-3.2.0.min.js"></script>
