@@ -54,47 +54,47 @@
 
 
       /***************Getters et setters******************/
-      protected function setNom($param){
-         $this->nom = $param;
+      protected function setNom($nom){
+         $this->nom = $nom;
       }
 
       public function getNom(){
          return $this->nom;
       }
 
-      protected function setPrenom($param){
-         $this->prenom = $param;
+      protected function setPrenom($prenom){
+         $this->prenom = $prenom;
       }
 
       public function getPrenom(){
          return $this->prenom;
       }
 
-      protected function setEmail($param){
-         $this->email = $param;
+      protected function setEmail($email){
+         $this->email = $email;
       }
 
       public function getEmail(){
          return $this->email;
       }
 
-      protected function setDateNaissance($param){
-         $this->dateNaiss = $param;
+      protected function setDateNaissance($dateNaiss){
+         $this->dateNaiss = $dateNaiss;
       }
 
       public function getDateNaissance(){
          return $this->dateNaiss;
       }
 
-      protected function setTelephone($param) {
-         $this->telPerso = $param;
+      protected function setTelephone($telPerso) {
+         $this->telPerso = $telPerso;
       }
 
       public function getTelephone(){
          return $this->telPerso;
       }
 
-      protected function setLogin($param) {
+      protected function setLogin($login) {
          $this->login = $login;
       }
 
@@ -102,7 +102,7 @@
          return $this->login;
       }
 
-      protected function setPassword($param){
+      protected function setPassword($password){
          $this->password = $password;
       }
    }
