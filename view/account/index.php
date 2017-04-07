@@ -297,16 +297,16 @@
                         <a href="#"><i class="fa fa-envelope fa-lg"></i> Messages <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="new">
-                        <li class="active"><a href="#">Reçus</li>
-                        <li><a href="#">Envoyés</a></li>
+                        <li class="active"><a href="index.php?p=inbox">Reçus</li>
+                        <li><a href="index.php?p=sent">Envoyés</a></li>
                     </ul>
 
                     <li  data-toggle="collapse" data-target="#products" class="collapsed">
                         <a href="#"><i class="fa fa-comments fa-lg"></i> Forum <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="products">
-                        <li class="active"><a href="#">Nouvelle question</a></li>
-                        <li><a href="#">Mes questions</a></li>
+                        <li class="active"><a href="index.php?p=forum">Afficher tout</a></li>
+                        <li><a href="index.php?p=myQuestions">Mes questions</a></li>
                     </ul>
 
                     <li data-toggle="collapse" data-target="#service" class="collapsed">
@@ -319,14 +319,33 @@
                     </ul>
 
                     <li>
-                        <a href="#"><i class="fa fa-user fa-lg"></i> Profil</a>
+                        <a href="index.php?p=profile"><i class="fa fa-user fa-lg"></i> Profil</a>
                     </li>
                 </ul>
             </div>
         </nav>
 
         <div class="container">
-            <?php include 'forum.php'; ?>
+            <?php
+                if (isset($_GET['p']) && $_GET['p'] == "inbox") {
+                    include 'pages/inbox.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "sent") {
+                    include 'pages/sent.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "forum") {
+                    include 'pages/forum.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "myQuestions") {
+                    include 'pages/myQuestions.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
+                    include 'pages/profile.php';
+                }
+                else {
+                    echo "Xët wii dé jissefuko !";
+                }
+            ?>
         </div>
 
         <script type="text/javascript" src="../dist/js/myScript.js"></script>
