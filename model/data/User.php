@@ -1,6 +1,7 @@
 <?php
+   // Classe utilisateur contenant les informations d'un utilisateur inscrit
    class User {
-      /* Member variables */
+
       private $nom;
       private $prenom;
       private $email;
@@ -8,8 +9,11 @@
       private $telPerso;
       private $login;
       private $password;
-      //private $confirmPassword;
 
+
+      // Créé un utilsateur vide
+      // Entrée : informations personnelles de l'utilisateur
+      // Sortie : ø
       function User($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) {
          $this->setNom($nom);
          $this->setPrenom($prenom);
@@ -20,8 +24,10 @@
          $this->setPassword($password);
       }
 
-      /* Member functions */
 
+      // Stocke les données dans l'utilisateur
+      // Entrée : tableau contenant les données personnelles de l'utilisateur
+      // Sortie : ø
       public function hydrate($donnees) {
          if (isset($donnees['nom'])) {
             $this->nom = $donnees['nom'];
@@ -46,6 +52,8 @@
          }
       }
 
+
+      /***************Getters et setters******************/
       protected function setNom($param){
          $this->nom = $param;
       }
@@ -97,11 +105,5 @@
       protected function setPassword($param){
          $this->password = $password;
       }
-
-      public function getPassword(){ // Est-ce sûr ? Est-ce ça vaut la peine ? A quoi ça sert ?
-         return $this->password;
-      }
-
-
    }
 ?>
