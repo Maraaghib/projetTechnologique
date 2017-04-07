@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Identifiant</label>
-                            <input type="text" class="form-control" id="login" name="prenom" placeholder="Entrer votre identifiant" required>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="Entrer votre identifiant" required>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label control-label-lg">Mot de passe</label>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group form-group-lg">
                             <div class="">
-                                <center><button type="submit" class="btn btn-default btn-lg" id="connexion" name="connexion"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></center>
+                                <center><button type="submit" class="btn btn-default btn-lg" id="btnLogIn" name="btnLogIn"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></center>
                             </div>
                         </div>
                     </div>
