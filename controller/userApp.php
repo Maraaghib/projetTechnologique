@@ -5,7 +5,10 @@
 	session_start();
 
 	if (! isset($_SESSION['account'])) {
-		$_SESSION['account'] = new UserBroker();
+		$user = new User;
+		$config = parse_ini_file('../private/config.ini');
+		$error = "";
+		$_SESSION['account'] = new UserBroker($user, $config, $error);
 	}
 
 	//$_SESSION['biblio'] = new BiblioBroker();
