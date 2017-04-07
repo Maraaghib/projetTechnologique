@@ -4,15 +4,15 @@
    class UserBroker {
 
       private $config;
-      private $userOnline;
+      private $user;
 
 
       // Créé un utilisateur et récupère les informations de connection contenues dans config.ini
       // Entrée : ø
       // Sortie : ø
-      public function UserBroker() {
-         $this->userOnline = new User();
-         $this->config = parse_ini_file('../private/config.ini');
+      public function __construct(User $user, array $config = []) {
+         $this->user = $user;
+         $this->config = $config;
       }
 
       // Se connecte au serveur
@@ -30,7 +30,7 @@
       // Ajoute un utilisateur et ses informations personnelles dans la base de données
       // Entrée : informations personnelles de l'utilisateur
       // Sortie : ø
-      public function addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) { 
+      public function addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) {
          // The message
          $message = "Merci pour votre inscription sur le forum des séniors. \nVos informations personnelles : \nNom : ".$nom." \nPrénom : ".$prenom." \nDate de naissance : ".$dateNaiss." \nTéléphone : ".$telPerso." \nLogin : ".$login;
 
@@ -83,7 +83,6 @@
             $oneUser = new User;
             $oneUser->hydrate($infosUser);
          }
-         $this->userOnline = $oneUser;
          return $oneUser;
       }
 
