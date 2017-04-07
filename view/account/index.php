@@ -7,6 +7,7 @@
     	<link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="../dist/font-awesome-4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" type="text/css" href="../dist/css/myStyle.css"/>
+    	<link rel="stylesheet" type="text/css" href="../dist/css/forum.css"/>
         <style media="screen">
             .nav-side-menu {
                 overflow: auto;
@@ -113,7 +114,7 @@
                 padding: 0px;
             }
 
-            input[type=text] {
+            #search {
                 width: 265px;
                 box-sizing: border-box;
                 border: 1px solid #1a3ec1;
@@ -131,7 +132,7 @@
                 float: right;
             }
 
-            input[type=text]:focus {
+            #search:focus {
                 width: 80%;
             }
 
@@ -183,7 +184,7 @@
             }
 
             @media (max-width: 1050px) {
-                input[type=text]:focus {
+                #search:focus {
                     width: 60%;
                 }
             }
@@ -217,13 +218,13 @@
                      width: 55%;
                  }
 
-                 input[type=text] {
+                 #search {
                      width: 100%;
                      font-size: 20px;
                      padding: 4px 0px 3px 0px;
                  }
 
-                 input[type=text]:focus {
+                 #search:focus {
                      width: 195%;
                  }
 
@@ -267,7 +268,7 @@
                 <div class="col-xs-10">
                     <form class="formSearch" action="#" method="post">
                         <div class="input-group divSearch">
-                            <input type="text" name="search" placeholder="Rechercher ...">
+                            <input type="text" name="search" id="search" placeholder="Rechercher ...">
                             <span class="input-group-btn">
                                 <button type="button" name="btnSearch" id="btnSearch" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
@@ -324,7 +325,9 @@
             </div>
         </nav>
 
-
+        <div class="container">
+            <?php include 'forum.php'; ?>
+        </div>
 
         <script type="text/javascript" src="../dist/js/myScript.js"></script>
         <script type="text/javascript" src="../dist/js/jquery-3.2.0.min.js"></script>
