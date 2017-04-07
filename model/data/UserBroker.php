@@ -5,14 +5,16 @@
 
       private $config;
       private $user;
+      private $error;
 
 
       // Créé un utilisateur et récupère les informations de connection contenues dans config.ini
       // Entrée : ø
       // Sortie : ø
-      public function __construct(User $user, array $config = []) {
+      public function __construct(User $user, array $config = [], $error) {
          $this->user = $user;
          $this->config = $config;
+         $this->error = $error;
       }
 
       // Se connecte au serveur
@@ -35,12 +37,10 @@
          $message = "Merci pour votre inscription sur le forum des séniors. \nVos informations personnelles : \nNom : ".$nom." \nPrénom : ".$prenom." \nDate de naissance : ".$dateNaiss." \nTéléphone : ".$telPerso." \nLogin : ".$login;
 
          mail($email, 'Inscription sur le forum des séniors', $message);
-         $id = 0;
          $db = $this->db_reconnect();
          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         $query = "INSERT INTO `user_account` (`ID`, `nom`, `prenom`, `email`, `dateNaiss`, `telPerso`, `login`, `password`) VALUES (:ID, :nom, :prenom, :email, :dateNaiss, :telPerso, :login, :password)";
+         $query = "INSERT INTO `user_account` (nom`, `prenom`, `email`, `dateNaiss`, `telPerso`, `login`, `password`) VALUES (:nom, :prenom, :email, :dateNaiss, :telPerso, :login, :password)";
          $stmt = $db->prepare($query);
-         $stmt->bindParam(':ID', $id);
          $stmt->bindParam(':nom', $nom);
          $stmt->bindParam(':prenom', $prenom);
          $stmt->bindParam(':email', $email);
@@ -49,57 +49,59 @@
          $stmt->bindParam(':login', $login);
          $stmt->bindParam(':password', $password);
          $stmt->execute();
+
+         return $stmt;
       }
 
       // Connecte l'utilisateur si son login et password sont valides
       // Entrée : son login et son mot de passe
       // Sortie : l'utilisateur connecté
-      public function connectUser($login, $password){
-         $correctPassword = false;
-         $correctLogin = false;
+      public function connectUser($login, $password) {
 
-         $db = $this->db_reconnect(); //contient le PDO entre le serveur et la bdd
-         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-         $query1 = "SELECT login FROM user_account WHERE login = `".$login."`";
-         $query2 = "SELECT password FROM user_account WHERE login = `".$login."`";
-         $query3 = "SELECT nom, prenom, email, dateNaiss, telPerso FROM user_account WHERE login = `".$login."`";
+          $db = $this->db_reconnect(); //contient le PDO entre le serveur et la bdd
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-         $result1 = $db->query($query1);
-         if ($result1->fetch()) { // Si le login existe dans la base de données
-            $correctLogin = true;
-            $result2 = $db->query($query2);
-            if (($result = $result2->fetch()) && (strcmp($result["password"], $password) == 0)) {
-                $correctPassword = true;
+          $query1 = "SELECT login FROM user_account WHERE login = `".$login."`";
+          $query2 = "SELECT password FROM user_account WHERE login = `".$login."`";
+        //   $query3 = "SELECT nom, prenom, email, dateNaiss, telPerso FROM user_account WHERE login = `".$login."`";
 
-                $result3 = $db->query($query3);
-            }
-         }
+          $result1 = $db->query($query1);
+          if ($result1->fetch()) { // Si le login existe dans la base de données
+              $result2 = $db->query($query2);
+              if ((strcmp($result["password"], $password) == 0 && ($result = $result2->fetch()))) {
+                  $result3 = $db->query($query3);
+              }
+              else {
+                  $this->error = "Le mot de passe que vous avez saisi est incorrect";
+                  return false;
+              }
+          }
+          else {
+              $this->error = "L'identifiant' que vous avez saisi est incorrect";
+              return false;
+          }
 
-         if((!$correctLogin) || (!$correctPassword)){
-            echo '<h1>Le login et/ou le mot de passe est incorrect !</h1>';
-         }
-         else{
-            $infosUser = $result3->fetch();
-            $oneUser = new User;
-            $oneUser->hydrate($infosUser);
-         }
-         return $oneUser;
+        //   $infosUser = $result3->fetch();
+        //   $oneUser = new User;
+        //   $oneUser->hydrate($infosUser);
+
+          return true;
       }
 
       // Retourne tous les utilisateur présents dans la base de données
       // Entrée : ø
       // Sortie : tous les utilisateurs
-      public function getUsers()
-      {
+      public function getUsers() {  // Fonction à revoir après !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          $db = $this->db_reconnect();
          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $query = "SELECT * FROM user_account";
          $results = $db->query($query);
 
          while($donnees = $results->fetch()){
-            $abonnes[] = hydrate($donnees);
+            $infosUser[] = hydrate($donnees);
          }
-         return $abonnes;
+
+         return $infosUser;
       }
    }
 
