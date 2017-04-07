@@ -6,14 +6,20 @@
       private $config;
       private $userOnline;
 
-      public function UserBroker() { //créé un user avec le login et le password pour se connecter au dbserver
+
+      // Créé un utilisateur et récupère les informations de connection contenues dans config.ini
+      // Entrée : ø
+      // Sortie : ø
+      public function UserBroker() {
          $this->userOnline = new User();
          $this->config = parse_ini_file('../private/config.ini');
       }
 
-      private function db_reconnect() { //se connecte au serveur avec les données dans config, et retourne la connexion entre le serveur et la bdd
+      // Se connecte au serveur
+      // Entrée : ø
+      // Sortie : La connexion entre le serveur et la base de données
+      private function db_reconnect() {
          print_r($this->config);
-         echo 'mysql:host=' . $this->config['db_hostname'] . '; dbname=' . $this->config['db_name'] . ',' . $this->config['db_user'] . ',' . $this->config['db_password'] . '<br>';
          try {
             return new PDO('mysql:host=' . $this->config['db_hostname'] . '; dbname=' . $this->config['db_name'], $this->config['db_user'], $this->config['db_password']);
          } catch (PDOException $e) {
@@ -21,13 +27,14 @@
          }
       }
 
-      public function addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) { //ajoute un utilisateur dans la bdd
+      // Ajoute un utilisateur et ses informations personnelles dans la base de données
+      // Entrée : informations personnelles de l'utilisateur
+      // Sortie : ø
+      public function addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) { 
          // The message
-         $message = "Merci pour votre inscription sur le site blabla. \nVos informations personnelles : \nNom : ".$nom." \nPrénom : ".$prenom." \nDate de naissance : ".$dateNaiss." \nTéléphone : ".$telPerso." \nLogin : ".$login;
-         // In case any of our lines are larger than 70 characters, we should use wordwrap()
+         $message = "Merci pour votre inscription sur le forum des séniors. \nVos informations personnelles : \nNom : ".$nom." \nPrénom : ".$prenom." \nDate de naissance : ".$dateNaiss." \nTéléphone : ".$telPerso." \nLogin : ".$login;
 
-         // Send
-         mail($email, 'Inscription sur le site blabla', $message);
+         mail($email, 'Inscription sur le forum des séniors', $message);
          $id = 0;
          $db = $this->db_reconnect();
          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -44,7 +51,10 @@
          $stmt->execute();
       }
 
-      public function connectUser($login, $password){ //connecte l'utilisateur si son login et password sont valides, retourne l'utilisateur connecté
+      // Connecte l'utilisateur si son login et password sont valides
+      // Entrée : son login et son mot de passe
+      // Sortie : l'utilisateur connecté
+      public function connectUser($login, $password){
          $correctPassword = false;
          $correctLogin = false;
 
@@ -77,7 +87,10 @@
          return $oneUser;
       }
 
-      public function getUsers() //retounre tous les utilisateur dans la bdd
+      // Retourne tous les utilisateur présents dans la base de données
+      // Entrée : ø
+      // Sortie : tous les utilisateurs
+      public function getUsers()
       {
          $db = $this->db_reconnect();
          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
