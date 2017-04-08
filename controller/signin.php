@@ -10,7 +10,12 @@
    }
 
    include('../model/signin.php');
-   header('Location: ../view/account.php');
-
+   if ($isConnected) {
+    //    Rdirect to account
+   }
+   else {
+    //    Redirect to account with type of error message on the URL
+   }
+   header('Location: ../view/account/');
 
 ?>
