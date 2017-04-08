@@ -100,13 +100,13 @@ if (isset($_POST['btnComment'])) {
 <?php endif ?>
 <form class="form" action="#comment" id="comment" method="post" style="margin-bottom: 20px;">
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="">Pseudo</label>
                 <input type="text" name="username" class="form-control" value="">
             </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-md-6 col-xs-12">
             <div class="form-group">
                 <label for="">Email</label>
                 <input type="email" name="email" class="form-control" value="">
