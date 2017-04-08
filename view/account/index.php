@@ -397,7 +397,7 @@
 
         <!-- <div class="container content" id="content" style="margin-left: 350px;"> -->
             <!-- <div class="row"> -->
-                <div style="margin-left:350px;margin-right:40px">
+                <div class="container">
                     <?php
                         if (isset($_GET['p']) && $_GET['p'] == "inbox") {
                             include 'pages/inbox.php';
