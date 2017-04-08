@@ -107,6 +107,7 @@
             @media (min-width: 767px) {
                 .nav-side-menu .menu-list .menu-content {
                     display: block;
+                    /* dropdown infos */
                 }
             }
             body {
@@ -159,6 +160,12 @@
                 padding-bottom: 12px;
             }
 
+            /* Toggle dropdown image*/
+            .dropdown-img {
+                width: 47px;
+                padding: 0px;
+            }
+
             .btn-log-out {
             	background-color: #fff;
                 border: 1px solid #1a3ec1;
@@ -203,6 +210,8 @@
                     position: absolute;
                     right: -45px;
                     top: 7px;
+
+                    /* dropdown info */
                 }
 
                 .navbar-default .navbar-toggle .icon-bar {
@@ -274,7 +283,7 @@
                             </span>
                         </div>
                     </form>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu-content">
+                    <button type="button" onclick="toTop()" class="navbar-toggle" data-toggle="collapse" data-target="#menu-content">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -325,31 +334,59 @@
             </div>
         </nav>
 
-        <div class="container">
-            <?php
-                if (isset($_GET['p']) && $_GET['p'] == "inbox") {
-                    include 'pages/inbox.php';
-                }
-                elseif (isset($_GET['p']) && $_GET['p'] == "sent") {
-                    include 'pages/sent.php';
-                }
-                elseif (isset($_GET['p']) && $_GET['p'] == "forum") {
-                    include 'pages/forum.php';
-                }
-                elseif (isset($_GET['p']) && $_GET['p'] == "myQuestions") {
-                    include 'pages/myQuestions.php';
-                }
-                elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
-                    include 'pages/profile.php';
-                }
-                else {
-                    echo "Xët wii dé jissefuko !";
-                }
-            ?>
-        </div>
+        <!-- <div class="container content" id="content" style="margin-left: 350px;"> -->
+            <!-- <div class="row"> -->
+                <div style="margin-left:350px;margin-right:40px">
+                    <?php
+                        if (isset($_GET['p']) && $_GET['p'] == "inbox") {
+                            include 'pages/inbox.php';
+                        }
+                        elseif (isset($_GET['p']) && $_GET['p'] == "sent") {
+                            include 'pages/sent.php';
+                        }
+                        elseif (isset($_GET['p']) && $_GET['p'] == "forum") {
+                            include 'pages/forum.php';
+                        }
+                        elseif (isset($_GET['p']) && $_GET['p'] == "myQuestions") {
+                            include 'pages/myQuestions.php';
+                        }
+                        elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
+                            include 'pages/profile.php';
+                        }
+                        else {
+                            echo "Xët wii dé jissefuko !";
+                        }
+                    ?>
+                    <div class="dropdown clearfix">
+                        <button class="btn btn-default dropdown-toggle dropdown-img" id="dropdown-img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="../img/avatars/img_avatar3.png" width="100%" alt=""></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="../img/avatars/img_avatar3.png" width="100%" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="" style="font-weight: bold; color: black;">
+                                        Mr Serigne Amsatou SEYE
+                                    </div>
+                                    <div class="" style="color: grey;">
+                                        hamzatou10@hotmail.fr
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- </div>
+        </div> -->
 
         <script type="text/javascript" src="../dist/js/myScript.js"></script>
         <script type="text/javascript" src="../dist/js/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="../dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            function toTop() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+        </script>
     </body>
 </html>
