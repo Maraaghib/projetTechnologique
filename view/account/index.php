@@ -115,6 +115,67 @@
                 padding: 0px;
             }
 
+            @media (min-width: 1748px) {
+                .container {
+                    margin-left: 350px; width: 80%;
+                }
+            }
+
+            @media (min-width: 1695px) and (max-width: 1747px) {
+                .container {
+                    margin-left: 350px; width: 78%;
+                }
+            }
+
+            @media (min-width: 1459px) and (max-width: 1694px) {
+                .container {
+                    margin-left: 350px; width: 76%;
+                }
+            }
+
+            @media (min-width: 1252px) and (max-width: 1458px) {
+                .container {
+                    margin-left: 350px; width: 72%;
+                }
+            }
+
+            @media (min-width: 1093px) and (max-width: 1251px) {
+                .container {
+                    margin-left: 350px; width: 68%;
+                }
+            }
+
+            @media (min-width: 972px) and (max-width: 1092px) {
+                .container {
+                    margin-left: 350px; width: 64%;
+                }
+            }
+
+            @media (min-width: 875px) and (max-width: 971px) {
+                .container {
+                    margin-left: 350px; width: 60%;
+                }
+            }
+
+            @media (min-width: 796px) and (max-width: 874px) {
+                .container {
+                    margin-left: 350px; width: 56%;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 795px) {
+                .container {
+                    margin-left: 350px; width: 52%;
+                    /*margin-right: 0px;*/
+                }
+            }
+
+            @media (max-width: 767px) {
+                .container {
+                    margin-left: 0px; /*width: 100%;*/
+                }
+            }
+
             #search {
                 width: 265px;
                 box-sizing: border-box;
