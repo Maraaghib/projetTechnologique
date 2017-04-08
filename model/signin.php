@@ -14,7 +14,7 @@
 
    	$testBroker = new UserBroker;
    	$testBroker->userOnline = $testUser;*/
-   	$user = $account->connectUser($login, $password);
+   	$isConnected = $account->connectUser($login, $password);
 
    	echo "MODEL : Après la ligne: user = account->connectUser(login, password);!<br>";
 ?>
