@@ -61,15 +61,21 @@
           $db = $this->db_reconnect(); //contient le PDO entre le serveur et la bdd
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-          $query1 = "SELECT login FROM user_account WHERE login = `".$login."`";
-          $query2 = "SELECT password FROM user_account WHERE login = `".$login."`";
+          $query1 = $db->prepare("SELECT login FROM user_account WHERE login = :login");
+          $query1->execute(['login' => $login]);
+          echo "<br><br>La requête 1 est : SELECT login FROM user_account WHERE login = `".$login."`<br>";
+          $query2 = $db->prepare("SELECT password FROM user_account WHERE login = :login");
+
         //   $query3 = "SELECT nom, prenom, email, dateNaiss, telPerso FROM user_account WHERE login = `".$login."`";
 
-          $result1 = $db->query($query1);
-          if ($result1->fetch()) { // Si le login existe dans la base de données
-              $result2 = $db->query($query2);
-              if ((strcmp($result["password"], $password) == 0 && ($result = $result2->fetch()))) {
-                  $result3 = $db->query($query3);
+          $result1 = $query1->fetch();
+          if ($result1) { // Si le login existe dans la base de données
+              $query2->execute(['login' => $login]);
+              $result2 = $query2->fetch();
+                  echo "Mot de passe ".$result2["password"];
+              if (($result2) && (strcmp($result2["password"], $password) == 0)) {
+                  //$result3 = $db->query($query3);
+                  return true;
               }
               else {
                   $this->error = "Le mot de passe que vous avez saisi est incorrect";
