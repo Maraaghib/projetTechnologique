@@ -168,6 +168,11 @@
                     margin-left: 350px; width: 52%;
                     /*margin-right: 0px;*/
                 }
+                .divSearch {
+                    margin-right: 15px;;
+                    margin-left: auto;
+                    width: 47%;
+                }
             }
 
             @media (max-width: 767px) {
@@ -198,6 +203,16 @@
                 width: 80%;
             }
 
+            @media (min-width: 768px) and (max-width: 795px) {
+                #search {
+                    width: 245px;
+                }
+
+                #search:focus {
+                    width: 100%;
+                }
+            }
+
             .formSearch {
                 width: 100%;
                 margin-bottom: 0px;
@@ -209,6 +224,7 @@
              .divSearch {
                  margin-top: 15px;
                  margin-bottom: 7px;
+                 margin-right: 80px;
              }
 
             #btnSearch {
@@ -222,9 +238,36 @@
             }
 
             /* Toggle dropdown image*/
-            .dropdown-img {
-                width: 47px;
+
+             .clearfix {
+                 top: 15px;
+                 width: 47px;
+                 position: fixed;
+                 right: 40px;
+             }
+
+            .dropdown-btn img {
+                width: 60px;
                 padding: 0px;
+                border-radius: 30px 30px 30px 30px;
+            }
+
+            .dropdown-btn {
+                padding: 0px;
+                right: 40px;
+                border-radius: 30px 30px 30px 30px;
+            }
+
+            .dropdown-menu {
+                width: 300px;
+                top: 74px;
+                font-size: 15px;
+                border-radius: 20px 0px 20px 0px;
+            }
+
+            .dropdown-menu img {
+                border-radius: 20px 0px 0px 0px;
+                margin-left: 6px;
             }
 
             .btn-log-out {
@@ -285,7 +328,7 @@
                  .divSearch {
                      margin-right: 15px;;
                      margin-left: auto;
-                     width: 55%;
+                     width: 50%;
                  }
 
                  #search {
@@ -304,7 +347,7 @@
                      padding-bottom: 0px;
                  }
 
-                 .btn-log-out{
+                 .btn-log-out, .dropdown-btn{
                      display: none;
                  }
 
@@ -350,6 +393,33 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <div class="dropdown clearfix">
+                        <button class="btn btn-default dropdown-toggle dropdown-btn" id="dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="../img/avatars/img_avatar3.png" width="100%" alt=""></button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="../img/avatars/img_avatar3.png" width="100%" alt="">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="" style="font-weight: bold; color: black;">
+                                        Mr Serigne Amsatou SEYE
+                                    </div>
+                                    <div class="" style="color: grey;">
+                                        hamzatou10@hotmail.fr
+                                    </div>
+                                </div>
+                            </div>
+                            <li role="separator" class="divider"></li>
+                            <div class="row center" style="margin-left: 0px;">
+                                <div class="col-xs-6">
+                                    <a href="#" class="btn btn-primary">Mon compte</a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <a href="#" class="btn btn-danger">Déconnexion</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
 
@@ -418,24 +488,7 @@
                             echo "Xët wii dé jissefuko !";
                         }
                     ?>
-                    <div class="dropdown clearfix">
-                        <button class="btn btn-default dropdown-toggle dropdown-img" id="dropdown-img" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="../img/avatars/img_avatar3.png" width="100%" alt=""></button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu4">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <img src="../img/avatars/img_avatar3.png" width="100%" alt="">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="" style="font-weight: bold; color: black;">
-                                        Mr Serigne Amsatou SEYE
-                                    </div>
-                                    <div class="" style="color: grey;">
-                                        hamzatou10@hotmail.fr
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             <!-- </div>
         </div> -->
