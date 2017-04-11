@@ -96,10 +96,6 @@
               return false;
           }
 
-        //   $infosUser = $result3->fetch();
-        //   $oneUser = new User;
-        //   $oneUser->hydrate($infosUser);
-
           return true;
       }
 
@@ -107,8 +103,11 @@
          $this->user = $user;
       }
 
-      public function getUser(){
-         return $this->user;
+      public function getUser($login){
+        $query = $db->prepare("SELECT * FROM user_account WHERE login = :login");
+        $query->execute(['login' => $login]);
+        $infosUser = $query->fetch();
+        return $this->user;
       }
 
       // Retourne tous les utilisateur présents dans la base de données
