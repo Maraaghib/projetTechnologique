@@ -374,8 +374,8 @@
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header col-xs-2">
-                    <a class="btn btn-default toggle-btn-log-out" href="#"><span class="glyphicon glyphicon-log-out"></span></a>
-                    <a class="btn btn-default btn-log-out" href="#"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
+                    <a class="btn btn-default toggle-btn-log-out" href="../../controller/signout.php"><span class="glyphicon glyphicon-log-out"></span></a>
+                    <a class="btn btn-default btn-log-out" href="../../controller/signout.php"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a>
                     <!-- <img src="../img/logo.jpg" alt="Logo de la mairie de Bègles" class="logo"> -->
                 </div>
                 <div class="col-xs-10">
@@ -415,7 +415,7 @@
                                     <a href="#" class="btn btn-primary">Mon compte</a>
                                 </div>
                                 <div class="col-xs-6">
-                                    <a href="#" class="btn btn-danger">Déconnexion</a>
+                                    <a href="../../controller/signout.php" class="btn btn-danger">Déconnexion</a>
                                 </div>
                             </div>
                         </div>
