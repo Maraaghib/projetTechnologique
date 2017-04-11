@@ -1,7 +1,5 @@
 <?php
 
-//echo __FILE__.'('.__LINE__.')';
-
    include_once('../model/data/UserBroker.php');
 
    session_start();
@@ -14,8 +12,7 @@
    $dateNaiss = $_POST['dateNaiss'];
    $telPerso = $_POST['telPerso'];
    $login = $_POST['login'];
-   $password = crypt($_POST['password']);
-   $confirmPassword = crypt($_POST['confirmPassword']);
+   $password = sha1($_POST['password']);
    include('../model/signup.php');
 
    if ($isAdded) {
@@ -24,7 +21,5 @@
    else {
        echo "L'utilisateur n'a pas été ajouté !<br>";
    }
-
-   // header('Location: ../view/account.php');
 
 ?>
