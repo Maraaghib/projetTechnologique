@@ -31,7 +31,7 @@
       // Ajoute un utilisateur et ses informations personnelles dans la base de données
       // Entrée : informations personnelles de l'utilisateur
       // Sortie : ø
-      public function addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) {
+      public function addUser(User $user) {
          // The message
 
          $db = $this->db_reconnect();
@@ -46,15 +46,15 @@
              login      = :login,
              password   = :password"
          );
-         var_dump($query);
+
          $data = [
-             'nom'      => $nom,
-             'prenom'   => $prenom,
-             'email'    => $email,
-             'dateNaiss'=> $dateNaiss,
-             'telPerso' => $telPerso,
-             'login'    => $login,
-             'password' => $password
+             'nom'       => $user->getNom(),
+             'prenom'    => $user->getPrenom(),
+             'email'     => $user->getEmail(),
+             'dateNaiss' => $user->getDateNaissance(),
+             'telPerso'  => $user->getTelephone(),
+             'login'     => $user->getLogin(),
+             'password'  => $user->getPassword()
          ];
 
         //  Envoi de mail pour confirmation de la création du compte
@@ -101,6 +101,14 @@
         //   $oneUser->hydrate($infosUser);
 
           return true;
+      }
+
+      protected function setUser(User $user){
+         $this->user = $user;
+      }
+
+      public function getUser(){
+         return $this->user;
       }
 
       // Retourne tous les utilisateur présents dans la base de données
