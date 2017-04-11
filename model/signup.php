@@ -3,8 +3,8 @@
 
    	include_once('data/User.php');
    	include_once('data/UserBroker.php');
-	var_dump($user); // Error: Undifined variable
-   	$account->addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password);
-   	var_dump($account);
+    echo "Je suis sur Model<br>";
+   	$isAdded = $account->addUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password);
+    echo "Je suis sur Model 2 <br>";
 
 ?>

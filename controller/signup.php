@@ -7,7 +7,6 @@
    session_start();
 
    $account = $_SESSION['account'];
-   var_dump($account);
 
    $nom = $_POST['nom'];
    $prenom = $_POST['prenom'];
@@ -17,8 +16,15 @@
    $login = $_POST['login'];
    $password = crypt($_POST['password']);
    $confirmPassword = crypt($_POST['confirmPassword']);
-
    include('../model/signup.php');
-   header('Location: ../view/account.php');
+
+   if ($isAdded) {
+       header('Location: ../view/account/');
+   }
+   else {
+       echo "L'utilisateur n'a pas été ajouté !<br>";
+   }
+
+   // header('Location: ../view/account.php');
 
 ?>
