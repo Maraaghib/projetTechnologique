@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=431, height=device-height, initial-scale=1">
-        <title>Mairie de Bègles | Accueil</title>
+        <title>Plateforme des séniors | Mon espace perso</title>
     	<link rel="stylesheet" type="text/css" href="../dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="../dist/font-awesome-4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" type="text/css" href="../dist/css/myStyle.css"/>

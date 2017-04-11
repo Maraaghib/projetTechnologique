@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=431, height=device-height, initial-scale=1">
-        <title>TD1 - Projet Technologique</title>
+        <title>Plateforme des séniors | Accueil</title>
     	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css"/>
     	<link rel="stylesheet" type="text/css" href="dist/css/myStyle.css"/>
         <style media="screen">
