@@ -356,7 +356,7 @@
                      padding-bottom: 0px;
                  }
 
-                 .btn-log-out, .dropdown-btn{
+                 .btn-log-out, .dropdown-btn {
                      display: none;
                  }
 
@@ -508,6 +508,13 @@
             $(document).ready(function(){
                 $("#dropdown-btn").click(function(){
                     $(".dropdown-menu").slideToggle("slow");
+                });
+
+                // Faire disparaître le dropdown-menu s'il apparaît dans les petits écrans
+                $(window).resize(function(){
+                    if ($( window ).width() <= 767) {
+                        $(".dropdown-menu").slideUp("slow");
+                    }
                 });
             });
             function toTop() {
