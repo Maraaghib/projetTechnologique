@@ -505,6 +505,11 @@
         <script type="text/javascript" src="../dist/js/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="../dist/js/bootstrap.min.js"></script>
         <script type="text/javascript">
+            $(document).ready(function(){
+                $("#dropdown-btn").click(function(){
+                    $(".dropdown-menu").slideToggle("slow");
+                });
+            });
             function toTop() {
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;
