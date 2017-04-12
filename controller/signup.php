@@ -1,10 +1,10 @@
 <?php
 
-    include_once('../model/data/UserBroker.php');
+    include_once('../model/data/Database.php');
 
     session_start();
 
-    $account = $_SESSION['account'];
+    // $account = $_SESSION['account'];
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -20,8 +20,10 @@
 
     if ($isAdded) {
        header('Location: ../view/account/');
+    //    Faire comme dans  la connexion: récupérer les infos
     }
     else {
+        // Pareille aussi: Message d'erreur
        echo "L'utilisateur n'a pas été ajouté !<br>";
     }
 

@@ -1,4 +1,5 @@
 <?php
+   include_once('Database.php');
 // Classe utilisateur contenant les informations d'un utilisateur inscrit
 class User {
 
@@ -9,11 +10,9 @@ class User {
     private $telPerso;
     private $login;
     private $password;
+    private $error;
+    private $db; // = Database::getDBConnection(); // Se connecter à la base de données
 
-
-    // Créé un utilsateur vide
-    // Entrée : informations personnelles de l'utilisateur
-    // Sortie : ø
     function __construct() {
         $this->nom       = "empty";
         $this->prenom    = "empty";
@@ -36,6 +35,104 @@ class User {
         $instance->setPassword($password);
 
         return $instance;
+    }
+
+    // Ajoute un utilisateur et ses informations personnelles dans la base de données
+    public function addUser() {
+        $db = Database::getDBConnection();
+       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+       $query = $db->prepare("INSERT INTO user_account SET
+           nom        = :nom,
+           prenom     = :prenom,
+           email      = :email,
+           dateNaiss  = :dateNaiss,
+           telPerso   = :telPerso,
+           login      = :login,
+           password   = :password"
+       );
+
+       $data = [
+           'nom'       => $this->getNom(),
+           'prenom'    => $this->getPrenom(),
+           'email'     => $this->getEmail(),
+           'dateNaiss' => $this->getDateNaissance(),
+           'telPerso'  => $this->getTelephone(),
+           'login'     => $this->getLogin(),
+           'password'  => $this->getPassword()
+       ];
+
+      //  Envoi de mail pour confirmation de la création du compte
+       $message = "Merci pour votre inscription sur le forum des séniors. \n";
+       $message .= "Vos informations personnelles : \n";
+       $message .= "Nom : ".$this->getNom()." \n";
+       $message .= "Prénom : ".$this->getPrenom()." \n";
+       $message .= "Date de naissance : ".$this->getDateNaissance()." \n";
+       $message .= "Téléphone : ".$this->getTelephone()." \n";
+       $message .= "Login : ".$this->getLogin();
+      //  mail($this->getEmail(), 'Inscription sur le forum des séniors', $message);
+
+       return $query->execute($data);
+    }
+
+    // Connecte l'utilisateur si son login et password sont valides
+    // Entrée : son login et son mot de passe
+    // Sortie : l'utilisateur connecté
+    public function connectUser($login, $password) {
+        $db = Database::getDBConnection();
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $query1 = $db->prepare("SELECT login FROM user_account WHERE login = :login");
+        $query1->execute(['login' => $login]);
+        $query2 = $db->prepare("SELECT password FROM user_account WHERE login = :login");
+
+      //   $query3 = "SELECT nom, prenom, email, dateNaiss, telPerso FROM user_account WHERE login = `".$login."`";
+
+        $result1 = $query1->fetch();
+        if ($result1) { // Si le login existe dans la base de données
+            $query2->execute(['login' => $login]);
+            $result2 = $query2->fetch();
+            if (($result2) && (strcmp($result2["password"], $password) == 0)) {
+                //$result3 = $db->query($query3);
+                return true;
+            }
+            else {
+                $this->error = "Le mot de passe que vous avez saisi est incorrect";
+                return false;
+            }
+        }
+        else {
+            $this->error = "L'identifiant' que vous avez saisi est incorrect";
+            return false;
+        }
+
+        return true;
+    }
+
+// A transférer dans la classe Database
+    public function getUser($login){
+        $db = Database::getDBConnection();
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $query = $db->prepare("SELECT * FROM user_account WHERE login = :login");
+      $query->execute(['login' => $login]);
+      $infosUser = $query->fetch();
+      return $infosUser;
+    }
+
+    // Retourne tous les utilisateur présents dans la base de données
+    // Entrée : ø
+    // Sortie : tous les utilisateurs
+    public function getUsers() {  // Fonction à revoir après !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        $db = Database::getDBConnection();
+       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       $query = "SELECT * FROM user_account";
+       $results = $db->query($query);
+
+       while($donnees = $results->fetch()){
+          $infosUser[] = hydrate($donnees);
+       }
+
+       return $infosUser;
     }
 
 

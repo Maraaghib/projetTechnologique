@@ -7,7 +7,7 @@
 //     throw new Exception('404');
 // }
 try {
-    $DB = new PDO('mysql:host=dbserver;dbname=saseye', 'saseye', '120191244');
+    $DB = new PDO('mysql:host=localhost;dbname=tuto_forum', 'root', '');
 } catch (PDOException $e) {
     die('Impossible de se connecter à la base de données');
 }

@@ -2,8 +2,8 @@
 <?php
 
    	include_once('data/User.php');
-   	include_once('data/UserBroker.php');
+   	include_once('data/Database.php');
 
-   	$isConnected = $account->connectUser($login, $password);
+   	$isConnected = $user->connectUser($login, $password);
 
 ?>
