@@ -102,6 +102,8 @@ img.logo {
 	font-size: 45px;
 	font-weight: bold;
 }
+
+/**********************************************   AVATARS - BEGIN  *********************************************/
 #openAvatars {
 	font-size: 30px;
 }
@@ -111,6 +113,41 @@ img.logo {
 		font-size: 20px;
 	}
 }
+
+/* Cacher les radio-box */
+.input-hidden {
+	position: absolute;
+	-webkit-appearance: none;
+}
+
+/* Si une avatar est cochée */
+input[type=radio]:checked + label>img {
+	border: 1px solid #fff;
+	box-shadow: 0 0 3px 3px #1a3ec1;
+	transform:  /*Faire une rotation de l'image*/
+	rotateZ(360deg);
+	/*rotateX(10deg);*/
+}
+/* Si un avatar pointé*/
+input[type=radio]:hover + label>img {
+	border: 1px solid #fff;
+	box-shadow: 0 0 3px 3px #1a3ec1;
+	/*transform:  Faire une rotation de l'image
+	rotateZ(360deg);
+	/*rotateX(10deg);*/
+	width: 130px;
+	height: 130px;
+}
+
+/* Pour rendre les apparences plus belles */
+input[type=radio] + label>img {
+	border-radius: 80px 80px 80px 80px;
+	border: 1px dashed #444;
+	width: 100px;
+	height: 100px;
+	transition: 500ms all;
+}
+/**********************************************   AVATARS - END  *********************************************/
 
 .large-btn:hover{
 	background-color: #fff;
