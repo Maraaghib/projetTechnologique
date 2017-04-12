@@ -317,7 +317,7 @@
                         </div>
                         <div class="form-group form-group-lg" style="margin-top: 30px;">
                             <div class="">
-                                <button type="button" class="btn btn-default btn-lg" name="chooseAvatar" id="chooseAvatar"><i class="fa fa-camera"></i> Choisir un avatar pour votre profil</button>
+                                <button type="button" class="btn btn-default btn-lg" name="openAvatars" id="openAvatars"><i class="fa fa-camera"></i> Choisir un avatar pour votre profil</button>
                             </div>
                         </div>
                         <!-- Pour les avatars, cliquer sur un bouton qui ouvre un modal avec une liste des images (c.f bouton profil) -->

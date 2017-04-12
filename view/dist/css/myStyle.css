@@ -102,12 +102,12 @@ img.logo {
 	font-size: 45px;
 	font-weight: bold;
 }
-#chooseAvatar {
+#openAvatars {
 	font-size: 30px;
 }
 
 @media only screen and (max-width: 767px) {
-	#chooseAvatar {
+	#openAvatars {
 		font-size: 20px;
 	}
 }
