@@ -90,7 +90,7 @@ img.logo {
 	font-weight: bold;
 }
 
-.btn-lg{
+.large-btn{
 	background-color: #f0b90e;
 	color: #000;
     padding-left: 20px;
@@ -102,7 +102,17 @@ img.logo {
 	font-size: 45px;
 	font-weight: bold;
 }
-.btn-lg:hover{
+#chooseAvatar {
+	font-size: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+	#chooseAvatar {
+		font-size: 20px;
+	}
+}
+
+.large-btn:hover{
 	background-color: #fff;
 	color: #f0b90e;
 }
@@ -133,7 +143,7 @@ img.logo {
 		font-weight: bold;
 	}
 
-	.btn-lg{
+	.large-btn{
 	    padding-left: 20px;
 	    padding-right: 25px;
 	    width: 185px;

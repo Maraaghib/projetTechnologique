@@ -56,8 +56,8 @@
                 <div class="row">
                     <div class="col-xs-6">
                         <div class="dropdown text-right">
-                            <a href="signin.php" class="btn btn-default btn-lg" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</a>
-                            <!-- <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</button>
+                            <a href="signin.php" class="btn btn-default btn-lg large-btn" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</a>
+                            <!-- <button type="button" class="btn btn-default btn-lg large-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</button>
                             <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="signin">
                                 <li class="dropdown-header">En tant que:</li>
                                 <li role="separator" class="divider"></li>
@@ -69,8 +69,8 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="dropdown text-left">
-                            <a href="signup.php" class="btn btn-default btn-lg" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</a>
-                            <!-- <button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</button>
+                            <a href="signup.php" class="btn btn-default btn-lg large-btn" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</a>
+                            <!-- <button type="button" class="btn btn-default btn-lg large-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</button>
                             <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="signup">
                                 <li class="dropdown-header">En tant que:</li>
                                 <li role="separator" class="divider"></li>

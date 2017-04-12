@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=431, height=device-height, initial-scale=1">
         <title>Plateforme des séniors | Inscription</title>
     	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="dist/font-awesome-4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" type="text/css" href="dist/css/myStyle.css"/>
     </head>
     <body>
@@ -314,11 +315,16 @@
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" onblur="inputValidation('confirmPassword')"  placeholder="**************">
                             <span class="help-block" id="helpConfirmPassword"></span>
                         </div>
+                        <div class="form-group form-group-lg" style="margin-top: 30px;">
+                            <div class="">
+                                <button type="button" class="btn btn-default btn-lg" name="chooseAvatar" id="chooseAvatar"><i class="fa fa-camera"></i> Choisir un avatar pour votre profil</button>
+                            </div>
+                        </div>
                         <!-- Pour les avatars, cliquer sur un bouton qui ouvre un modal avec une liste des images (c.f bouton profil) -->
                         <!-- Comme celui-ci: chrome://settings/manageProfile -->
-                        <div class="form-group form-group-lg">
+                        <div class="form-group form-group-lg" style="margin-top: 40px;">
                             <div class="">
-                                <center><button type="submit" class="btn btn-default btn-lg" name="inscription"><span class="glyphicon glyphicon-user"></span> Inscription</button></center>
+                                <center><button type="submit" class="btn btn-default btn-lg large-btn" name="inscription"><span class="glyphicon glyphicon-user"></span> Inscription</button></center>
                             </div>
                         </div>
                     </div>

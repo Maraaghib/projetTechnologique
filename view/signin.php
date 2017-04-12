@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group form-group-lg">
                             <div class="">
-                                <center><button type="submit" class="btn btn-default btn-lg" id="btnLogIn" name="btnLogIn"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></center>
+                                <center><button type="submit" class="btn btn-default btn-lg large-btn" id="btnLogIn" name="btnLogIn"><span class="glyphicon glyphicon-log-in"></span> Connexion</button></center>
                             </div>
                         </div>
                     </div>
