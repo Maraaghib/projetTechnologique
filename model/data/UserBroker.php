@@ -58,8 +58,14 @@
          ];
 
         //  Envoi de mail pour confirmation de la création du compte
-         $message = "Merci pour votre inscription sur le forum des séniors. \nVos informations personnelles : \nNom : ".$nom." \nPrénom : ".$prenom." \nDate de naissance : ".$dateNaiss." \nTéléphone : ".$telPerso." \nLogin : ".$login;
-         mail($email, 'Inscription sur le forum des séniors', $message);
+         $message = "Merci pour votre inscription sur le forum des séniors. \n";
+         $message .= "Vos informations personnelles : \n";
+         $message .= "Nom : ".$user->getNom()." \n";
+         $message .= "Prénom : ".$user->getPrenom()." \n";
+         $message .= "Date de naissance : ".$user->getDateNaissance()." \n";
+         $message .= "Téléphone : ".$user->getTelephone()." \n";
+         $message .= "Login : ".$user->getLogin();
+        //  mail($user->getEmail(), 'Inscription sur le forum des séniors', $message);
 
          return $query->execute($data);
       }
@@ -69,7 +75,7 @@
       // Sortie : l'utilisateur connecté
       public function connectUser($login, $password) {
 
-          $db = $this->db_reconnect(); //contient le PDO entre le serveur et la bdd
+          $db = $this->db_reconnect();
           $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
           $query1 = $db->prepare("SELECT login FROM user_account WHERE login = :login");
@@ -104,10 +110,12 @@
       }
 
       public function getUser($login){
+          $db = $this->db_reconnect();
+          $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $db->prepare("SELECT * FROM user_account WHERE login = :login");
         $query->execute(['login' => $login]);
         $infosUser = $query->fetch();
-        return $this->user;
+        return $infosUser;
       }
 
       // Retourne tous les utilisateur présents dans la base de données

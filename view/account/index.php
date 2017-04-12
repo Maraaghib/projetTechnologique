@@ -1,3 +1,12 @@
+<?php
+    include_once('../../model/data/User.php');
+    session_start();
+    // Si l'on ne s'est pas connecté, on est redirigé vers l'accueil
+    if (!isset($_SESSION['User'])) {
+        header('Location: ../home.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -402,10 +411,13 @@
                                 </div>
                                 <div class="col-md-8">
                                     <div class="" style="font-weight: bold; color: black;">
-                                        Mr Serigne Amsatou SEYE
+                                        <?php
+                                            // $gender = (($_SESSION['User']->getGender(), "Masculin") == 0) ? "Mr" : "Mme"; Coder la méthode getGender() et le reste
+                                            echo "Mr " .$_SESSION['User']->getPrenom(). " " .$_SESSION['User']->getNom();
+                                        ?>
                                     </div>
                                     <div class="" style="color: grey;">
-                                        hamzatou10@hotmail.fr
+                                        <?php echo $_SESSION['User']->getEmail(); ?>
                                     </div>
                                 </div>
                             </div>
@@ -465,33 +477,29 @@
             </div>
         </nav>
 
-        <!-- <div class="container content" id="content" style="margin-left: 350px;"> -->
-            <!-- <div class="row"> -->
-                <div class="container">
-                    <?php
-                        if (isset($_GET['p']) && $_GET['p'] == "inbox") {
-                            include 'pages/inbox.php';
-                        }
-                        elseif (isset($_GET['p']) && $_GET['p'] == "sent") {
-                            include 'pages/sent.php';
-                        }
-                        elseif (isset($_GET['p']) && $_GET['p'] == "forum") {
-                            include 'pages/forum.php';
-                        }
-                        elseif (isset($_GET['p']) && $_GET['p'] == "myQuestions") {
-                            include 'pages/myQuestions.php';
-                        }
-                        elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
-                            include 'pages/profile.php';
-                        }
-                        else {
-                            echo "Xët wii dé jissefuko !";
-                        }
-                    ?>
+        <div class="container">
+            <?php
+                if (isset($_GET['p']) && $_GET['p'] == "inbox") {
+                    include 'pages/inbox.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "sent") {
+                    include 'pages/sent.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "forum") {
+                    include 'pages/forum.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "myQuestions") {
+                    include 'pages/myQuestions.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
+                    include 'pages/profile.php';
+                }
+                else {
+                    echo "Xët wii dé jissefuko !";
+                }
+            ?>
 
-                </div>
-            <!-- </div>
-        </div> -->
+        </div>
 
         <script type="text/javascript" src="../dist/js/myScript.js"></script>
         <script type="text/javascript" src="../dist/js/jquery-3.2.0.min.js"></script>

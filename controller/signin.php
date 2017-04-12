@@ -12,8 +12,10 @@
    include('../model/signin.php');
 
    if ($isConnected) {
-       // Faire getUser($login) crée une session 
-       $_SESSION['User'] = User::newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password); // Crée une nouvelle instance de User avec des paramètres
+       // Faire getUser($login) crée une session
+       $_SESSION['User'] = new User;
+       $_SESSION['User']->hydrate($account->getUser($login)); //User::newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password); // Crée une nouvelle instance de User avec des paramètres
+    //    echo($_SESSION['User']->getPrenom()); die();
        header('Location: ../view/account/');
    }
    else {
