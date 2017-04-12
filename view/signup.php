@@ -7,6 +7,9 @@
     	<link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="dist/font-awesome-4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" type="text/css" href="dist/css/myStyle.css"/>
+        <style media="screen">
+
+        </style>
     </head>
     <body>
         <div class="container navigation">
@@ -317,11 +320,30 @@
                         </div>
                         <div class="form-group form-group-lg" style="margin-top: 30px;">
                             <div class="">
-                                <button type="button" class="btn btn-default btn-lg" name="openAvatars" id="openAvatars"><i class="fa fa-camera"></i> Choisir un avatar pour votre profil</button>
+                                <button type="button" class="btn btn-default btn-lg" name="openAvatars" id="openAvatars" data-toggle="modal" data-target="#modalAvatars" onclick="displayAvatrs()"><i class="fa fa-camera"></i> Choisir un avatar pour votre profil</button>
                             </div>
                         </div>
-                        <!-- Pour les avatars, cliquer sur un bouton qui ouvre un modal avec une liste des images (c.f bouton profil) -->
-                        <!-- Comme celui-ci: chrome://settings/manageProfile -->
+                        <input type="hidden" name="avatar" id="avatar" value="img_avatar0.png">
+                        <!-- Modal pour choisir les avatars -->
+                        <div class="modal fade" id="modalAvatars" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h2 class="modal-title"><i class="fa fa-camera"></i> Choissiez un avatar pour votre profil</h2>
+                                    </div>
+                                    <div class="modal-body" id="modalContent">
+                                        <!-- Les avatrs -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" id="chooseAvatar"><i class="fa fa-check"></i> Valider</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelAvatar"><i class="fa fa-close"></i> Annuler</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="form-group form-group-lg" style="margin-top: 40px;">
                             <div class="">
                                 <center><button type="submit" class="btn btn-default btn-lg large-btn" name="inscription"><span class="glyphicon glyphicon-user"></span> Inscription</button></center>
@@ -340,7 +362,28 @@
         <script type="text/javascript" src="dist/js/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="dist/js/bootstrap.min.js"></script>
         <script type="text/javascript">
+            $(document).ready(function(){
+                $("#chooseAvatar").click(function(){
+                     document.getElementById('avatar').value = $('input[name=avatar_img]:checked', '#modalAvatars').val();
+                });
+                $("#cancelAvatar").click(function(){
+                     document.getElementById('avatar').value = "img_avatar0";
+                });
+            });
 
+            function displayAvatrs() {
+                var modal = document.getElementById('modalContent');
+                modal.innerHTML = "";
+                for (var i = 0; i < 15; i++) {
+                    modal.innerHTML += '<input type="radio" name="avatar_img" id="avatar'+i+'" value="img_avatar'+i+'" class="input-hidden" /> <label for="avatar'+i+'"> <img src="img/avatars/img_avatar'+i+'.png" alt="Avatar" /> </label>';
+                }
+            }
+
+            // function checkAvatar(image) {
+            //     //  onclick="checkAvatar(\'img_avatar'+i+'\')"
+            //     document.getElementById('avatar').value = image+".png";
+            //     // console.log("img/avatars/"+image+".png");
+            // }
         </script>
     </body>
 </html>
