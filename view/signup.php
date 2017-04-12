@@ -314,6 +314,8 @@
                             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" onblur="inputValidation('confirmPassword')"  placeholder="**************">
                             <span class="help-block" id="helpConfirmPassword"></span>
                         </div>
+                        <!-- Pour les avatars, cliquer sur un bouton qui ouvre un modal avec une liste des images (c.f bouton profil) -->
+                        <!-- Comme celui-ci: chrome://settings/manageProfile -->
                         <div class="form-group form-group-lg">
                             <div class="">
                                 <center><button type="submit" class="btn btn-default btn-lg" name="inscription"><span class="glyphicon glyphicon-user"></span> Inscription</button></center>
