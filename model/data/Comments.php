@@ -59,11 +59,11 @@ class Comments {
     */
     public function save($refPost) {
         $errors = [];
-        if(empty($_POST['username'])) {
+        if(empty($_SESSION['User']->getLogin())) {
             $errors['username'] = $this->options['username_error'];
         }
 
-        if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        if(empty($_SESSION['User']->getEmail()) || !filter_var($_SESSION['User']->getEmail(), FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = $this->options['email_error'];
         }
 
@@ -98,8 +98,8 @@ class Comments {
             parent_id = :parent_id"
         );
         $data = [
-            'username' => $_POST['username'],
-            'email'    => $_POST['email'],
+            'username' => $_SESSION['User']->getLogin(),
+            'email'    => $_SESSION['User']->getEmail(),
             'content'  => $_POST['content'],
             'refPost'   => $refPost,
             'created'  => date('Y-m-d H:i:s'),
