@@ -68,15 +68,15 @@
             }
             .nav-side-menu ul .sub-menu li,
             .nav-side-menu li .sub-menu li {
-                background-color: #181c20;
+                background-color: #0d5092;
                 border: none;
                 line-height: 28px;
-                border-bottom: 1px solid #23282e;
+                border-bottom: 1px solid #ffffff;
                 margin-left: 0px;
             }
             .nav-side-menu ul .sub-menu li:hover,
             .nav-side-menu li .sub-menu li:hover {
-                background-color: #020203;
+                background-color: #013971;
             }
             .nav-side-menu ul .sub-menu li:before,
             .nav-side-menu li .sub-menu li:before {
@@ -92,7 +92,7 @@
                 padding-bottom: 15px;
                 padding-left: 0px;
                 border-left: 7px solid #337ab7;
-                border-bottom: 1px solid #23282e;
+                border-bottom: 1px solid #ffffff;
             }
             .nav-side-menu li a {
                 text-decoration: none;
