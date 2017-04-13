@@ -113,31 +113,35 @@ if (isset($_POST['btnComment'])) {
     </div>
 </form>
 
-<?php foreach ($comments as $comment): ?>
-    <!-- Afficher tous les commentaires -->
-    <?php require 'oneComment.php'; ?>
-    <?php foreach ($comment->replies as $comment): ?>
-        <!-- Pour chaque commentaire, afficher ses réponses, s'ils en existent -->
-        <div style="margin-left: 100px;">
+<div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+        <?php $i = 0; foreach ($comments as $comment): ?>
+            <!-- Afficher tous les commentaires -->
             <?php require 'oneComment.php'; ?>
-        </div>
-    <?php endforeach; ?>
-<?php endforeach ?>
+            <?php foreach ($comment->replies as $comment): ?>
+                <!-- Pour chaque commentaire, afficher ses réponses, s'ils en existent -->
+                <div style="margin-left: 100px;">
+                    <?php require 'oneComment.php'; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endforeach ?>
+    </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-    (function($){
-        $('.reply').click(function(ev){
-            // Faire de telle sorte que si on clique, un modal s'ouvre avec le message à répondre au-dessus du champ de réponse
-            ev.preventDefault();
-            var $this = $(this);
-            var $comment = $(this).parents('.comment');
-            var $form = $('#comment');
-            var id = $this.data('id'); // L'id du bouton "Répondre"
-            console.log(id);
-            $form.hide();
-            $comment.after($form);
-            $form.slideDown();
-            $('#parent_id').val(id); // On stocke l'id du bouton "Répondre" dans un input hidden
-        })
-    })(jQuery);
+    // (function($){
+    //     $('.btn-reply-comment').click(function(ev){
+    //         // Faire de telle sorte que si on clique, un modal s'ouvre avec le message à répondre au-dessus du champ de réponse
+    //         ev.preventDefault();
+    //         var $this = $(this);
+    //         var $comment = $(this).parents('.comment');
+    //         var $form = $('#comment');
+    //         var id = $this.data('id'); // L'id du bouton "Répondre"
+    //         console.log(id);
+    //         $form.hide();
+    //         $comment.after($form);
+    //         $form.slideDown();
+    //         $('#parent_id').val(id); // On stocke l'id du bouton "Répondre" dans un input hidden
+    //     })
+    // })(jQuery);
 </script>

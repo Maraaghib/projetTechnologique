@@ -120,6 +120,7 @@
                 }
             }
             body {
+                background-color: #e9ebee;
                 margin: 0px;
                 padding: 0px;
             }
@@ -510,13 +511,48 @@
                     $(".dropdown-menu").slideToggle("slow");
                 });
 
+
                 // Faire disparaître le dropdown-menu s'il apparaît dans les petits écrans
                 $(window).resize(function(){
                     if ($( window ).width() <= 767) {
                         $(".dropdown-menu").slideUp("slow");
                     }
                 });
+
+                var nbLines = 1;
+                var nbCarac = 0;
+                var nb = 0;
+
+                $('textarea[name=text-reply]').bind('input propertychange', function() {
+                    var $this = $(this); // Le textarea
+                    var text = this.value; // Son contenu
+                    var paddingTop = Number($this.css("padding-top").substring(0, $this.css("padding-top").length-2));
+                    var paddingBottom = Number($this.css("padding-bottom").substring(0, $this.css("padding-bottom").length-2));
+                    var height = 35;
+                        $this.attr('rows', (($this.get(0).scrollHeight)-(paddingTop+paddingBottom))/height);
+                        if (text.trim() == "") {
+                            $this.attr('rows', 1);
+                        }
+                    console.log($this.get(0).scrollHeight+" -- "+$this.height());
+                });
             });
+
+            // Ouvrir le textarea pour répondre
+            (function($){
+                $('.btn-reply-comment').click(function(ev){
+                    ev.preventDefault();
+                    var $this = $(this); // On récupère le bouton Répondre sur lequel on a cliqué
+                    var form = $this.data('form'); // La classe du form correspondant
+                    console.log(form);
+                    $("."+form+"").slideToggle("slow");
+                    $("."+form+" textarea[name=text-reply]").focus();
+                })
+            })(jQuery);
+
+            function countChar(val) {
+
+            }
+
             function toTop() {
                 document.body.scrollTop = 0;
                 document.documentElement.scrollTop = 0;

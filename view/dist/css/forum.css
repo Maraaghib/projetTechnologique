@@ -1,3 +1,59 @@
 .container {
     margin-top: 150px;
 }
+
+.comment {
+    background-color: #f6f7f9;
+    padding: 10px 15px;
+    font-size: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    margin: 10px;
+    height: 90px;
+    width: auto;
+    font-size: 30px;
+    line-height: 90px;
+    border-radius: 40px;
+    background-color: #e2e3ef;
+}
+
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+}
+
+.dateComment {
+    font-size: 18px;
+}
+
+.message {
+    margin-top:
+}
+
+.btn-like-comment {
+    margin-right: 25px;
+}
+
+.badge-like-comment {
+    background-color: #337ab7;
+    font-size: 15px;
+}
+
+.formReply {
+    display: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-top: 30px;
+}
+
+textarea[name=text-reply] {
+    resize: none;
+    font-size: 25px;
+}
