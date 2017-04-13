@@ -403,11 +403,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="dropdown clearfix">
-                        <button class="btn btn-default dropdown-toggle dropdown-btn" id="dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img src="../img/avatars/img_avatar3.png" width="100%" alt=""></button>
+                        <button class="btn btn-default dropdown-toggle dropdown-btn" id="dropdown-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><?php echo '<img src="../img/avatars/' .$_SESSION['User']->getAvatar(). '.png" width="100%" alt="">'; ?></button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu4">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="../img/avatars/img_avatar3.png" width="100%" alt="">
+                                    <?php echo '<img src="../img/avatars/' .$_SESSION['User']->getAvatar(). '.png" width="100%" alt="">'; ?>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="" style="font-weight: bold; color: black;">
