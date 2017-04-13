@@ -3,42 +3,41 @@
 /**
 *
 */
-class Comments {
+class Comment {
 
     private $db;
-    private $nom;
+    private $username;
     private $message;
     private $dateComment;
     private $refPost;
     private $parentId;
-    private $like;
+    private $likes;
     // Tableau des messages d'erreurs de validation
-    private $options = array(
-        'content_error' => "Vous n'avez pas entré de message",
-        'parent_error' => "Vous essayez de répondre à un commentaire qui n'existe pas"
-    );
+    // private $options = array(
+    //     'parent_error' => "Vous essayez de répondre à un commentaire qui n'existe pas"
+    // );
 
     public $errors = array();
 
     public function __construct() {
-        // $this->db = $db;
+        // $db = $db;
         // $this->options = array_merge($this->options, $options = []);
-        $this->nom          = "empty";
+        $this->username     = "empty";
         $this->message      = "empty";
         $this->dateComment  = "empty";
         $this->refPost      = 1;
         $this->parentId     = 0;
-        $this->like         = 0;
+        $this->likes        = 0;
     }
 
-    public static function newComment($username, $message, $dateComment, $refPost, $parentId, $like) {
+    public static function newComment($username, $message, $dateComment, $refPost, $parentId, $likes) {
         $instance = new self();
-        $instance->setUsername($nom);
+        $instance->setUsername($username);
         $instance->setMessage($message);
         $instance->setDateComment($dateComment);
         $instance->setRefPost($refPost);
         $instance->setParentId($parentId);
-        $instance->setLike($like);
+        $instance->setLikes($likes);
 
         return $instance;
     }
@@ -47,20 +46,20 @@ class Comments {
     * Permet de récupérer les commentaires associés à un contenu
     */
     public function findAll($refPost) {
-        $query = $this->db->prepare("SELECT * FROM comments WHERE refPost = :refPost ORDER BY created DESC");
+        $query = $db->prepare("SELECT * FROM comments WHERE refPost = :refPost ORDER BY created DESC");
         $query->execute(['refPost' => $refPost]);
         $comments = $query->fetchAll();
         $replies = [];
 
         foreach ($comments as $k => $comment) {
-            if($comment->parent_id) {
-                $replies[$comment->parent_id][] = $comment;
+            if($comment->parentId) {
+                $replies[$comment->parentId][] = $comment;
                 unset($comments[$k]);
             }
         }
         foreach ($comments as $k => $comment) {
-            if(isset($replies[$comment->id])) {
-                $rep = $replies[$comment->id];
+            if(isset($replies[$comment->idComment])) {
+                $rep = $replies[$comment->idComment];
                 usort($rep, [$this, 'sortReplies']);
                 $comments[$k]->replies = $rep;
             }
@@ -80,49 +79,52 @@ class Comments {
     /**
     * Permet d sauvegarder un commentaire
     */
-    public function save($refPost) {
+    public function savePost() {
+        $db = Database::getDBConnection();
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $errors = [];
 
-        if(empty($_POST['content'])) {
-            $errors['content'] = $this->options['content_error'];
-        }
-
-        if(count($errors) > 0) {
-            $this->errors = $errors;
-            return false;
-        }
-
         // Si on essaie de répondre à un message qui n'existe pas
-        if(!empty($_POST['parent_id'])) {
-            $query = $this->db->prepare("SELECT id FROM comments WHERE refPost = :refPost AND id = :id AND parent_id = 0");
-            $query->execute([
-                'refPost' => $refPost,
-                'id' =>   $_POST['parent_id'],
-            ]);
-            if($query->rowCount() <= 0) {
-                $this->errors['parent'] = $this->options['parent_error'];
-                return false;
-            }
-        }
+        // if(!empty($_POST['parentId'])) {
+        //     $query = $db->prepare("SELECT idComment FROM comments WHERE refPost = :refPost AND idComment = :idComment AND parentId = 0");
+        //     $query->execute([
+        //         'refPost'   => $this->getRefPost(),
+        //         'idComment' => $_POST['parentId'],
+        //     ]);
+        //     if($query->rowCount() <= 0) {
+        //         $this->errors['parent'] = $this->options['parent_error'];
+        //         return false;
+        //     }
+        // }
 
-        $query = $this->db->prepare("INSERT INTO comments SET
+        $query1 = $db->prepare("INSERT INTO comments SET
             username = :username,
-            email    = :email,
-            content  = :content,
+            message  = :message,
             refPost   = :refPost,
             created  = :created,
-            parent_id = :parent_id"
+            parentId = :parentId"
         );
+
         $data = [
-            'username' => $_SESSION['User']->getLogin(),
-            'email'    => $_SESSION['User']->getEmail(),
-            'content'  => $_POST['content'],
-            'refPost'   => $refPost,
-            'created'  => date('Y-m-d H:i:s'),
-            'parent_id' => $_POST['parent_id']
+            'username' => $this->getUsername(),
+            'email'    => $this->getMessage(),
+            'message'  => $this->getDateComment(),
+            'refPost'   => $this->getRefPost(),
+            'created'  => $this->getParentId(),
+            'parentId' => $this->getLikes()
         ];
 
-        return $query->execute($data);
+        $query2 = $db->prepare("INSERT INTO likes SET
+            username = :username,
+            refPost  = :refPost"
+        );
+
+        $data = [
+            'username' => $this->getUsername(),
+            'refPost'   => $this->getRefPost()
+        ];
+
+        return $query1->execute($data) && $query2->execute($data);
     }
 }
 
