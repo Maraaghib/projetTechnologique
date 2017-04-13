@@ -16,16 +16,18 @@
     $avatar = $_POST['avatar'];
 
     $user = User::newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password, $avatar); // Crée une nouvelle instance de User avec des paramètres
-    
+
     include('../model/signup.php');
 
     if ($isAdded) {
-       header('Location: ../view/account/');
-    //    Faire comme dans  la connexion: récupérer les infos
+        $user->hydrate($user->getUser($login));
+        $_SESSION['User'] = $user;
+
+        header('Location: ../view/account/');
     }
     else {
         // Pareille aussi: Message d'erreur
-       echo "L'utilisateur n'a pas été ajouté !<br>";
+        header('Location: ../view/signup.php?error=true'); // Passer en GET l'/es erreur/s de connexion ???
     }
 
 ?>
