@@ -47,7 +47,7 @@
 
         <div class="container header">
             <div class="page-header text-center">
-                <h1>Bienvenue sur le forum des handicapés et séniors</h1>
+                <h1>Bienvenue sur la page d'accès aux services de la Mairie de Bègles</h1>
             </div>
         </div> <!-- container header -->
 

@@ -292,6 +292,12 @@
                                     <select class="form-control text-right" id="ville" name="ville" onblur="inputValidation('ville')">
                                         <option value="">Sélectionner une ville</option>
                                         <option value="begles">Bègles</option>
+                                        <option value="villenave d'ornon">Villenave D'ornon</option>
+                                        <option value="gradignan">Gradignan</option>
+                                        <option value="bordeaux">Bordeaux</option>
+                                        <option value="merignac">Merignac</option>
+                                        <option value="pessac">Pessac</option>
+                                        <option value="cadaujac">Cadaujac</option>
                                     </select>
                                     <span class="help-block" id="helpVille"></span>
                                 </div>
