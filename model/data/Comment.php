@@ -11,7 +11,7 @@ class Comments {
     private $dateComment;
     private $refPost;
     private $parentId;
-    private $like;
+    private $likes;
     // Tableau des messages d'erreurs de validation
     private $options = array(
         'content_error' => "Vous n'avez pas entré de message",
@@ -28,17 +28,17 @@ class Comments {
         $this->dateComment  = "empty";
         $this->refPost      = 1;
         $this->parentId     = 0;
-        $this->like         = 0;
+        $this->likes        = 0;
     }
 
-    public static function newComment($username, $message, $dateComment, $refPost, $parentId, $like) {
+    public static function newComment($username, $message, $dateComment, $refPost, $parentId, $likes) {
         $instance = new self();
         $instance->setUsername($nom);
         $instance->setMessage($message);
         $instance->setDateComment($dateComment);
         $instance->setRefPost($refPost);
         $instance->setParentId($parentId);
-        $instance->setLike($like);
+        $instance->setLikes($likes);
 
         return $instance;
     }
@@ -113,6 +113,7 @@ class Comments {
             created  = :created,
             parent_id = :parent_id"
         );
+
         $data = [
             'username' => $_SESSION['User']->getLogin(),
             'email'    => $_SESSION['User']->getEmail(),
@@ -126,6 +127,53 @@ class Comments {
     }
 }
 
+    /***************Getters et setters******************/
+    public function setNom($nom){
+        $this->nom = $nom;
+    }
 
+    public function getNom(){
+        return $this->nom;
+    }
 
+    public function setMessage($message){
+        $this->message = $message;
+    }
+
+    public function getMessage(){
+        return $this->message;
+    }
+
+    public function setDateComment($dateComment){               
+        $this->dateComment = $dateComment;
+    }
+
+    public function getDateComment(){
+        return $this->dateComment;
+    }
+
+    public function setRefPost($refPost){
+        $this->refPost = $refPost;
+    }
+
+    public function getRefPost(){
+        return $this->refPost;
+    }
+
+    public function setParentId($parentId) {
+        $this->parentId = $parentId;
+    }
+
+    public function getParentId(){
+        return $this->parentId;
+    }
+
+    public function setLikes($likes) {
+        $this->likes = $likes;
+    }
+
+    public function getLikes(){
+        return $this->likes;
+    }
+}
 ?>
