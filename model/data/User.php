@@ -10,6 +10,7 @@ class User {
     private $telPerso;
     private $login;
     private $password;
+    private $avatar;
     private $error;
     private $db; // = Database::getDBConnection(); // Se connecter à la base de données
 
@@ -21,10 +22,11 @@ class User {
         $this->telPerso  = "empty";
         $this->login     = "empty";
         $this->password  = "empty";
+        $this->avatar    = "empty";
     }
 
     // Simuler un constructeur avec des paramètres
-    public static function newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password) {
+    public static function newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password, $avatar) {
         $instance = new self();
         $instance->setNom($nom);
         $instance->setPrenom($prenom);
@@ -33,6 +35,7 @@ class User {
         $instance->setTelephone($telPerso);
         $instance->setLogin($login);
         $instance->setPassword($password);
+        $instance->setAvatar($avatar);
 
         return $instance;
     }
@@ -49,7 +52,8 @@ class User {
            dateNaiss  = :dateNaiss,
            telPerso   = :telPerso,
            login      = :login,
-           password   = :password"
+           password   = :password,
+           avatar     = :avatar"
        );
 
        $data = [
@@ -59,7 +63,8 @@ class User {
            'dateNaiss' => $this->getDateNaissance(),
            'telPerso'  => $this->getTelephone(),
            'login'     => $this->getLogin(),
-           'password'  => $this->getPassword()
+           'password'  => $this->getPassword(),
+           'avatar'    => $this->getAvatar()
        ];
 
       //  Envoi de mail pour confirmation de la création du compte
@@ -161,6 +166,9 @@ class User {
         if (isset($donnees['password'])) {
             $this->password = $donnees['password'];
         }
+        if (isset($donnees['avatar'])) {
+            $this->avatar = $donnees['avatar'];
+        }
     }
 
 
@@ -217,8 +225,16 @@ class User {
         $this->password = $password;
     }
 
-    public function getPassword(){ // Pose pas de problème puisque le mot de passe est invisible (i.e haché)
+    public function getPassword(){ // Ne pose pas de problème puisque le mot de passe est invisible (i.e haché)
         return $this->password;
+    }
+
+    public function setAvatar($avatar) {
+        $this->avatar = $avatar;
+    }
+
+    public function getAvatar(){
+        return $this->avatar;
     }
 }
 ?>

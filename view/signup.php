@@ -378,12 +378,6 @@
                     modal.innerHTML += '<input type="radio" name="avatar_img" id="avatar'+i+'" value="img_avatar'+i+'" class="input-hidden" /> <label for="avatar'+i+'"> <img src="img/avatars/img_avatar'+i+'.png" alt="Avatar" /> </label>';
                 }
             }
-
-            // function checkAvatar(image) {
-            //     //  onclick="checkAvatar(\'img_avatar'+i+'\')"
-            //     document.getElementById('avatar').value = image+".png";
-            //     // console.log("img/avatars/"+image+".png");
-            // }
         </script>
     </body>
 </html>
