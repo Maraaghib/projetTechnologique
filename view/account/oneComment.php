@@ -14,7 +14,7 @@
     <!-- <em><?php //echo date('d/m/Y', strtotime($comment->created)); ?></em> -->
 
     <!-- Message -->
-    <div class="col-xs-12">
+    <div class="col-xs-12 message">
         <!-- Chaque bouton "Répondre" prend comme id celui du message il fait référence  -->
         <p>
             <?php echo $comment->content; ?>
