@@ -22,7 +22,7 @@ class User {
         $this->telPerso  = "empty";
         $this->login     = "empty";
         $this->password  = "empty";
-        $this->avatar    = "empty";
+        $this->avatar    = "img_avatar0";
     }
 
     // Simuler un constructeur avec des paramètres
@@ -75,7 +75,7 @@ class User {
        $message .= "Date de naissance : ".$this->getDateNaissance()." \n";
        $message .= "Téléphone : ".$this->getTelephone()." \n";
        $message .= "Login : ".$this->getLogin();
-      //  mail($this->getEmail(), 'Inscription sur le forum des séniors', $message);
+       mail($this->getEmail(), 'Inscription sur le forum des séniors', $message);
 
        return $query->execute($data);
     }
