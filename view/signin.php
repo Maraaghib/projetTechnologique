@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Identifiant</label>
-                            <input type="text" class="form-control" id="login" name="login" placeholder="Entrer votre identifiant" required>
+                            <input type="text" class="form-control" id="login" name="login" placeholder="Identifiant" required>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label control-label-lg">Mot de passe</label>
