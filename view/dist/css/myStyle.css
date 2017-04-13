@@ -26,7 +26,7 @@ img.avatar {
 }
 
 .navbar-default .navbar-nav > li > a, .navbar-btn {
-	background-color: #1a3ec1;
+	background-color: #337ab7;
 	color: #fff;
 	font-size: 30px;
 	margin: 20px 10px 20px 10px;
@@ -34,13 +34,13 @@ img.avatar {
 
 #cacher {
 	background-color: #f8f8f8;
-	color: #1a3ec1;
+	color: #337ab7;
 	border: none;
 }
 
 #cacher:hover {
 	 border: 1px solid;
-	 border-color: #1a3ec1;
+	 border-color: #337ab7;
 }
 
 img.logo {
@@ -51,7 +51,7 @@ img.logo {
 
 .navbar-default .navbar-nav > li > a:hover {
 	background-color: #fff;
-	color: #1a3ec1	;
+	color: #337ab7	;
 }
 
 @media only screen and (max-width: 803px) and (min-width: 768px) {
@@ -87,7 +87,7 @@ img.logo {
 
 .page-header h1{
 	font-size: 60px;
-	color: #1a3ec1;
+	color: #337ab7;
 	font-weight: bold;
 }
 
@@ -124,7 +124,7 @@ img.logo {
 /* Si une avatar est cochée */
 input[type=radio]:checked + label>img {
 	border: 1px solid #fff;
-	box-shadow: 0 0 3px 3px #1a3ec1;
+	box-shadow: 0 0 3px 3px #337ab7;
 	transform:  /*Faire une rotation de l'image*/
 	rotateZ(360deg);
 	/*rotateX(10deg);*/
@@ -132,7 +132,7 @@ input[type=radio]:checked + label>img {
 /* Si un avatar pointé*/
 input[type=radio]:hover + label>img {
 	border: 1px solid #fff;
-	box-shadow: 0 0 3px 3px #1a3ec1;
+	box-shadow: 0 0 3px 3px #337ab7;
 	/*transform:  Faire une rotation de l'image
 	rotateZ(360deg);
 	/*rotateX(10deg);*/

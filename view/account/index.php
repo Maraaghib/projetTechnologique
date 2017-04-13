@@ -23,7 +23,7 @@
                 font-family: verdana;
                 font-size: 35px;
                 font-weight: 200;
-                background-color: #1a3ec1;
+                background-color: #337ab7;
                 position: fixed;
                 top: 93px;
                 width: 350px;
@@ -91,7 +91,7 @@
                 padding-top: 15px;
                 padding-bottom: 15px;
                 padding-left: 0px;
-                border-left: 7px solid #1a3ec1;
+                border-left: 7px solid #337ab7;
                 border-bottom: 1px solid #23282e;
             }
             .nav-side-menu li a {
@@ -194,7 +194,7 @@
             #search {
                 width: 265px;
                 box-sizing: border-box;
-                border: 1px solid #1a3ec1;
+                border: 1px solid #337ab7;
                 border-radius: 4px 0px 0px 4px;
                 font-size: 30px;
                 background-color: white;
@@ -238,9 +238,9 @@
              }
 
             #btnSearch {
-                background-color: #1a3ec1;
+                background-color: #337ab7;
                 color: #fff;
-                border: 1px solid #1a3ec1;
+                border: 1px solid #337ab7;
                 border-left: 0px;
                 font-size: 30px;
                 padding-top: 12px;
@@ -282,8 +282,8 @@
 
             .btn-log-out {
             	background-color: #fff;
-                border: 1px solid #1a3ec1;
-            	color: #1a3ec1;
+                border: 1px solid #337ab7;
+            	color: #337ab7;
                 padding-left: 20px;
                 padding-right: 25px;
                 width: 315px;
@@ -295,7 +295,7 @@
                 cursor: pointer;
             }
             .btn-log-out:hover {
-            	background-color: #1a3ec1;
+            	background-color: #337ab7;
             	color: #fff;
             }
 
@@ -318,7 +318,7 @@
                  }
 
                 .navbar-default .navbar-toggle {
-                    border: 1px solid #1a3ec1;
+                    border: 1px solid #337ab7;
                     padding-bottom: 7px;
                     padding-top: 7px;
                     position: absolute;
@@ -329,7 +329,7 @@
                 }
 
                 .navbar-default .navbar-toggle .icon-bar {
-                    background-color: #1a3ec1;
+                    background-color: #337ab7;
                     width: 25px;
                     height: 4px;
                 }
@@ -363,8 +363,8 @@
 
                  .toggle-btn-log-out {
                  	background-color: #fff;
-                    border: 1px solid #1a3ec1;
-                 	color: #1a3ec1;
+                    border: 1px solid #337ab7;
+                 	color: #337ab7;
                     width: 50px;
                     padding-bottom: 1px;
                     padding-top: 5px;
