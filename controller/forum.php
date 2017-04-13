@@ -28,19 +28,37 @@
     $message  = $_POST['text-reply']; //"Commentaire par défaut", //$_POST['content'],
     $refPost   = 1; // Dans la page du post, je garde son id dans un input hidden, que je vais envoyer par post
     $parentId = 0; //$_POST['parentId'];
-    $likes = 18;
+    // $likes = 18;
 
-    echo $dateComment;
+    $comment = Comment::newComment($username, $message, $dateComment, $refPost, $parentId); //, $likes
 
-    $comment = Comment::newComment($username, $message, $dateComment, $refPost, $parentId, $likes);
+
 
     include('../model/forum.php');
 
-    // if ($isSaved) {
-    //     $comment->hydrate($comment->getUser($login));
-    //     $_SESSION['User'] = $comment;
+    // var_dump($comment); die();
 
-    header('Location: ../view/account/pages/forum.php');
+    // if ($isSaved) {
+    //     $comment->hydrate($comment->findAll($refPost));
+    //     $_SESSION['Post'] = $comment;
+    //
+    //     header('Location: ../view/account/pages/forum.php');
+    // }
+    // elseif (!isset($_SESSION['Post'])) {
+        $refPost = 1;
+        $comments = $comment->findAll($refPost);
+
+        while ($donnees = $comments) {
+            $listMessages[] = $comment->hydrate($donnees);
+        }
+
+        $_SESSION['Post'] = $comment;
+        $_SESSION['Messages'] = $listMessages;
+        
+        header('Location: ../view/account/pages/forum.php');
+    // }
+    // elseif (isset($_SESSION['Post'])) {
+    //     header('Location: ../view/account/pages/forum.php');
     // }
     // else {
     //     // Pareille aussi: Message d'erreur

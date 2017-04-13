@@ -67,15 +67,18 @@ $comments = $commentCls->findAll($post->id);
 /*
 * CONTENU
 */
-
+session_start();
+header('Location: ../../../controller/forum.php');
 
 ?>
 
 <!-- Affichage du post -->
 <!-- Un post dot avoir une date et heure et l'id de la personne qui l'a publié -->
+
+<!-- Un moyen de récupérer  -->
 <h1><?php //echo $post->name; ?></h1>
 
-<?php //echo $post->content; ?>
+<?php //echo "<h1>" .$post->content. "</h1>"; ?>
 
 
 
@@ -84,29 +87,29 @@ $comments = $commentCls->findAll($post->id);
     // $comments = $query->fetchAll();
 ?>
 
-<!-- <h2><?php //echo count($comments); ?> Commentaires</h2> -->
+<h2><?php echo count($_SESSION['Messages']); ?> Commentaires</h2>
 
 <?php// if($errors): ?>
-    <div class="alert alert-danger">
+    <!-- <div class="alert alert-danger"> -->
         <!-- <strong>Impossible de poster votre commentaire pour les raisons suivantes:</strong> -->
-        <ul>
+        <!-- <ul> -->
             <?php// foreach ($errors as $error): ?>
-                <li><?php// echo $error; ?></li>
+                <!-- <li><?php// echo $error; ?></li> -->
             <?php// endforeach; ?>
-        </ul>
-    </div>
+        <!-- </ul> -->
+    <!-- </div> -->
 <?php// endif ?>
 <?php// if($success): ?>
-    <div class="alert alert-success">
-        <strong>Barvo. Votre commentaire a bien été publié</strong>
-    </div>
+    <!-- <div class="alert alert-success">
+        <strong>Bravo. Votre commentaire a bien été publié</strong>
+    </div> -->
 <?php// endif ?>
 
 <form class="form" action="../../controller/forum.php" id="comment" method="post" style="margin-bottom: 20px;">
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label for="">Commentaire</label>
+                <label for="">Publier un nouveau message</label>
                 <textarea name="text-reply" class="form-control" rows="8" cols="80"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="btnComment">Envoyer</button>
@@ -116,7 +119,24 @@ $comments = $commentCls->findAll($post->id);
         <!-- <input type="hidden" name="action" value="comment"> -->
     </div>
 </form>
+<?php
+    // $commentCls = new Comment;
 
+ //var_dump($_SESSION['Post']); die(); ?>
+<div class="row">
+    <div class="col-xs-offset-1 col-xs-10">
+        <?php $i = 0; foreach ($_SESSION['Messages'] as $comment): ?>
+            <!-- Afficher tous les commentaires -->
+            <?php require 'oneComment.php'; ?>
+            <?php foreach ($comment->replies as $comment): ?>
+                <!-- Pour chaque commentaire, afficher ses réponses, s'ils en existent -->
+                <div style="margin-left: 100px;">
+                    <?php require 'oneComment.php'; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endforeach ?>
+    </div>
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">

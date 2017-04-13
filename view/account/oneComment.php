@@ -6,18 +6,17 @@
     <!-- Avatar & Prénom Nom -->
     <div class="col-xs-12 chip">
         <?php echo '<img src="../img/avatars/' .$_SESSION['User']->getAvatar(). '.png" width="95" height="95" alt="">'; ?>
-        <strong><?php //echo $comment->username; ?></strong>
+        <strong><?php echo $_SESSION['Post']->getUsername(); ?></strong>
     </div>
 
     <!-- Date & Heure -->
-    <div class="col-xs-12 dateComment">Jeudi 13 Avril 2017 à 03:36</div>
-    <!-- <em><?php //echo date('d/m/Y', strtotime($comment->created)); ?></em> -->
+    <div class="col-xs-12 dateComment"><?php echo $_SESSION['Post']->getDateComment(); ?></div>
 
     <!-- Message -->
     <div class="col-xs-12 message">
         <!-- Chaque bouton "Répondre" prend comme id celui du message il fait référence  -->
         <p>
-            <?php //echo $comment->content; ?>
+            <?php echo $_SESSION['Post']->getMsg(); ?>
         </p>
     </div>
 
