@@ -2,7 +2,7 @@
    include_once('User.php');
 
    /**
-    * Singleton permettant de faire la connexion à la base de données une seule foistout au long de l'application
+    * Singleton permettant de faire la connexion à la base de données une seule fois tout au long de l'application
     **/
    class Database {
 
