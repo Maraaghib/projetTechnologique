@@ -36,9 +36,6 @@
             <form class="form-horizontal" action="../controller/signin.php" method="post">
                 <div class="row">
                     <div class="col-xs-offset-1 col-xs-10">
-                        <div class="imgcontainer">
-                            <img src="img/avatars/img_avatar1.png" class="avatar" alt="Avatar">
-                        </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Identifiant</label>
                             <input type="text" class="form-control" id="login" name="login" placeholder="Identifiant" required>
