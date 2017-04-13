@@ -3,7 +3,7 @@
 /**
 *
 */
-class Comments {
+class Comment {
 
     private $db;
     private $nom;
@@ -43,6 +43,26 @@ class Comments {
         return $instance;
     }
 
+    public function hydrate($donnees) {
+        if (isset($donnees['nom'])) {
+            $this->nom = $donnees['nom'];
+        }
+        if (isset($donnees['message'])) {
+            $this->message = $donnees['message'];
+        }
+        if (isset($donnees['dateComment'])) {
+            $this->dateComment = $donnees['dateComment'];
+        }
+        if (isset($donnees['refPost'])) {
+            $this->refPost = $donnees['refPost'];
+        }
+        if (isset($donnees['parentId'])) {
+            $this->parentId = $donnees['parentId'];
+        }
+        if (isset($donnees['likes'])) {
+            $this->likes = $donnees['likes'];
+        }
+    }
     /**
     * Permet de récupérer les commentaires associés à un contenu
     */
