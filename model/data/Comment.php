@@ -1,23 +1,46 @@
 <?php
+   include_once('Database.php');
 /**
 *
 */
-// namespace Hamza\Plugin;
 class Comments {
 
     private $db;
+    private $nom;
+    private $message;
+    private $dateComment;
+    private $refPost;
+    private $parentId;
+    private $like;
     // Tableau des messages d'erreurs de validation
     private $options = array(
-        'username_error' => "Vous n'avez pas entré de pseudo",
-        'email_error' => "Votre email n'est pas valide",
         'content_error' => "Vous n'avez pas entré de message",
         'parent_error' => "Vous essayez de répondre à un commentaire qui n'existe pas"
     );
+
     public $errors = array();
 
-    public function __construct($db, $options) {
-        $this->db = $db;
-        $this->options = array_merge($this->options, $options = []);
+    public function __construct() {
+        // $this->db = $db;
+        // $this->options = array_merge($this->options, $options = []);
+        $this->nom          = "empty";
+        $this->message      = "empty";
+        $this->dateComment  = "empty";
+        $this->refPost      = 1;
+        $this->parentId     = 0;
+        $this->like         = 0;
+    }
+
+    public static function newComment($username, $message, $dateComment, $refPost, $parentId, $like) {
+        $instance = new self();
+        $instance->setUsername($nom);
+        $instance->setMessage($message);
+        $instance->setDateComment($dateComment);
+        $instance->setRefPost($refPost);
+        $instance->setParentId($parentId);
+        $instance->setLike($like);
+
+        return $instance;
     }
 
     /**
@@ -59,13 +82,6 @@ class Comments {
     */
     public function save($refPost) {
         $errors = [];
-        if(empty($_SESSION['User']->getLogin())) {
-            $errors['username'] = $this->options['username_error'];
-        }
-
-        if(empty($_SESSION['User']->getEmail()) || !filter_var($_SESSION['User']->getEmail(), FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = $this->options['email_error'];
-        }
 
         if(empty($_POST['content'])) {
             $errors['content'] = $this->options['content_error'];
