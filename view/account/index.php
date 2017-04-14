@@ -1,5 +1,6 @@
 <?php
     include_once('../../model/data/User.php');
+    include_once('../../model/data/Comment.php');
     session_start();
     // Si l'on ne s'est pas connecté, on est redirigé vers l'accueil
     if (!isset($_SESSION['User'])) {

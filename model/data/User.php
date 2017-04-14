@@ -22,7 +22,7 @@ class User {
         $this->telPerso  = "empty";
         $this->login     = "empty";
         $this->password  = "empty";
-        $this->avatar    = "empty";
+        $this->avatar    = "img_avatar0";
     }
 
     // Simuler un constructeur avec des paramètres
@@ -40,10 +40,38 @@ class User {
         return $instance;
     }
 
+
+    // Permet d'éviter les doublons d'email et de login dans la base de données
+    // Entrée : email et login renseignés 
+    // Sortie : vrai si le login ou email est unique, faux sinon.
+    public function existUser($email, $login){
+      $db = Database::getDBConnection();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      $queryEmail = $db->prepare("SELECT email FROM user_account WHERE email = :email");
+      $queryEmail->execute(['email' => $email]);
+
+      $queryLogin = $db->prepare("SELECT login FROM user_account WHERE login = :login");
+      $queryLogin->execute(['login' => $login]);
+
+      $resultEmail = $queryEmail->fetch();
+      $resultLogin = $queryLogin->fetch();
+
+      if ($resultEmail){
+        $this->error = "Cet email est déjà utilisé";
+        return true;
+      }
+      if ($resultLogin){
+        $this->error = "Ce login est déjà utilisé";
+        return true;
+      }
+      return false;
+    }
+
     // Ajoute un utilisateur et ses informations personnelles dans la base de données
     public function addUser() {
-        $db = Database::getDBConnection();
-       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db = Database::getDBConnection();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
        $query = $db->prepare("INSERT INTO user_account SET
            nom        = :nom,
@@ -75,7 +103,7 @@ class User {
        $message .= "Date de naissance : ".$this->getDateNaissance()." \n";
        $message .= "Téléphone : ".$this->getTelephone()." \n";
        $message .= "Login : ".$this->getLogin();
-      //  mail($this->getEmail(), 'Inscription sur le forum des séniors', $message);
+       mail($this->getEmail(), 'Inscription sur le forum des séniors', $message);
 
        return $query->execute($data);
     }
@@ -107,7 +135,7 @@ class User {
             }
         }
         else {
-            $this->error = "L'identifiant' que vous avez saisi est incorrect";
+            $this->error = "L'identifiant que vous avez saisi est incorrect";
             return false;
         }
 

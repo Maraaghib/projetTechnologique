@@ -6,22 +6,23 @@
 // if(!isset($_GET['slug'])) {
 //     throw new Exception('404');
 // }
-try {
-    $DB = new PDO('mysql:host=localhost;dbname=tuto_forum', 'root', '');
-} catch (PDOException $e) {
-    die('Impossible de se connecter à la base de données');
-}
+// try {
+//     $DB = new PDO('mysql:host=dbserver;dbname=saseye', 'saseye', '120191244');
+// } catch (PDOException $e) {
+//     die('Impossible de se connecter à la base de données');
+// }
+//
+// $DB->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+// $DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+//
+//
+// define('DS', DIRECTORY_SEPARATOR);
+// define('VIEWS', __DIR__ .DS. 'views' .DS); // __DIR__ est le répertoire du projet (ici C:\wamp64\www\forum)
+// // define('ELEMENTS', __DIR__ .DS. 'views' .DS. 'elements' .DS);
+//
 
-$DB->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
-$DB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-
-
-define('DS', DIRECTORY_SEPARATOR);
-define('VIEWS', __DIR__ .DS. 'views' .DS); // __DIR__ est le répertoire du projet (ici C:\wamp64\www\forum)
-// define('ELEMENTS', __DIR__ .DS. 'views' .DS. 'elements' .DS);
-
-
-
+// Récupération du post
+/*
 $id = 1; // L'id du message posté
 
 $query = $DB->prepare('SELECT * FROM posts WHERE id = :id');
@@ -31,7 +32,7 @@ $post = $query->fetch();
 if (!$post) {
     throw new  Exception('404');
 }
-
+*/
 
 /*
 * Nos commentaires
@@ -43,36 +44,66 @@ if (!$post) {
 // }
 
 // use Hamza\Plugin\Comments;
-require('../../model/data/Comments.php');
+// echo(__DIR__."../../../"); die();
+// include('../../model/data/Comment.php');
+/*
 $commentCls = new Comments($DB, $opt = array());
 $comments = $commentCls->findAll($post->id);
+*/
 
 // Soummission d'un commentaire
-$errors = false;
-$success = false;
-if (isset($_POST['btnComment'])) {
-    $save = $commentCls->save($post->id); // Enregistrer le commentaire pour le post dont l'id est passé en parmètre
-    if($save) {
-        $success = true;
-    }
-    else {
-        $errors = $commentCls->errors;
-    }
-
-    // header('Location: ../../../forum/index.php?p=posts.view&slug=mon-super-slug');
-}
+// $errors = false;
+// $success = false;
+// if (isset($_POST['btnComment'])) {
+//     $save = $commentCls->save($post->id); // Enregistrer le commentaire pour le post dont l'id est passé en parmètre
+//     if($save) {
+//         $success = true;
+//     }
+//     else {
+//         $errors = $commentCls->errors;
+//     }
+//
+//     // header('Location: ../../../forum/index.php?p=posts.view&slug=mon-super-slug');
+// }
 /*
 * CONTENU
 */
+// session_start();
+// header('Location: ../../../controller/forum.php');
+// if (!isset($_SESSION['Messages'])) {
+// header('Location: ../../controller/forum.php');
 
 
+
+    // foreach ($comments as $donnees) {
+    //     var_dump($donnees);
+    // }
+    // die();
+    // $comment->hydrate($donnees);
+    // $listMessages[] = $comment->hydrate($donnees);
+    //
+    // $_SESSION['Post'] = $comment;
+    // $_SESSION['Messages'] = $listMessages;
+// }
+if (!isset($_SESSION['Messages'] )) {
+    $comment = new Comment;
+    $refPost = 1;
+    $_SESSION['Messages'] = $comment->findAll($refPost);
+}
+
+$refPost = 1;
+$comments = $_SESSION['Messages'];
+// var_dump( $comments); die();
+// $comments = $comment->findAll($refPost);
 ?>
 
 <!-- Affichage du post -->
 <!-- Un post dot avoir une date et heure et l'id de la personne qui l'a publié -->
-<h1><?php echo $post->name; ?></h1>
 
-<?php echo $post->content; ?>
+<!-- Un moyen de récupérer  -->
+<h1><?php //echo $post->name; ?></h1>
+
+<?php //echo "<h1>" .$post->content. "</h1>"; ?>
 
 
 
@@ -83,42 +114,47 @@ if (isset($_POST['btnComment'])) {
 
 <h2><?php echo count($comments); ?> Commentaires</h2>
 
-<?php if($errors): ?>
-    <div class="alert alert-danger">
-        <strong>Impossible de poster votre commentaire pour les raisons suivantes:</strong>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li><?php echo $error; ?></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
-<?php endif ?>
-<?php if($success): ?>
-    <div class="alert alert-success">
-        <strong>Barvo. Votre commentaire a bien été publié</strong>
-    </div>
-<?php endif ?>
-<form class="form" action="#comment" id="comment" method="post" style="margin-bottom: 20px;">
+<?php// if($errors): ?>
+    <!-- <div class="alert alert-danger"> -->
+        <!-- <strong>Impossible de poster votre commentaire pour les raisons suivantes:</strong> -->
+        <!-- <ul> -->
+            <?php// foreach ($errors as $error): ?>
+                <!-- <li><?php// echo $error; ?></li> -->
+            <?php// endforeach; ?>
+        <!-- </ul> -->
+    <!-- </div> -->
+<?php// endif ?>
+<?php// if($success): ?>
+    <!-- <div class="alert alert-success">
+        <strong>Bravo. Votre commentaire a bien été publié</strong>
+    </div> -->
+<?php// endif ?>
+
+<form class="form" action="../../controller/forum.php" id="comment" method="post" style="margin-bottom: 20px;">
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label for="">Commentaire</label>
-                <textarea name="content" class="form-control" rows="8" cols="80"></textarea>
+                <label for="">Publier un nouveau message: </label>
+                <textarea name="text-reply" class="form-control" rows="8" cols="80"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="btnComment">Envoyer</button>
         </div>
         <!-- On stock l'id parent de chaque messsage auquel on répond -->
-        <input type="hidden" name="parent_id" value="0" id="parent_id">
+        <input type="hidden" name="parentId" value="0" id="parentId">
         <!-- <input type="hidden" name="action" value="comment"> -->
     </div>
 </form>
+<?php
+    // $commentCls = new Comment;
 
+ //var_dump($_SESSION['Post']); die(); ?>
 <div class="row">
     <div class="col-xs-offset-1 col-xs-10">
         <?php $i = 0; foreach ($comments as $comment): ?>
+            <?php  ?>
             <!-- Afficher tous les commentaires -->
             <?php require 'oneComment.php'; ?>
-            <?php foreach ($comment->replies as $comment): ?>
+            <?php foreach ($comment['replies'] as $comment): ?>
                 <!-- Pour chaque commentaire, afficher ses réponses, s'ils en existent -->
                 <div style="margin-left: 100px;">
                     <?php require 'oneComment.php'; ?>
@@ -127,6 +163,7 @@ if (isset($_POST['btnComment'])) {
         <?php endforeach ?>
     </div>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
     // (function($){
@@ -141,7 +178,7 @@ if (isset($_POST['btnComment'])) {
     //         $form.hide();
     //         $comment.after($form);
     //         $form.slideDown();
-    //         $('#parent_id').val(id); // On stocke l'id du bouton "Répondre" dans un input hidden
+    //         $('#parentId').val(id); // On stocke l'id du bouton "Répondre" dans un input hidden
     //     })
     // })(jQuery);
 </script>

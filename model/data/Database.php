@@ -2,7 +2,7 @@
    include_once('User.php');
 
    /**
-    * Singleton permettant de faire la connexion à la base de données une seule foistout au long de l'application
+    * Singleton permettant de faire la connexion à la base de données une seule fois tout au long de l'application
     **/
    class Database {
 
@@ -22,6 +22,21 @@
       public static function getDBConnection() {
           if (is_null(self::$db)) {
               self::$config = parse_ini_file('../private/config.ini');
+
+              try {
+                 self::$db = new PDO('mysql:host=' . self::$config['db_hostname'] . '; dbname=' . self::$config['db_name'], self::$config['db_user'], self::$config['db_password']);
+              } catch (PDOException $e) {
+                 print "Connection failed : " . $e->getMessage() . "<br/>";
+              }
+          }
+
+          return self::$db;
+      }
+
+
+      public static function getDBConnection2() {
+          if (is_null(self::$db)) {
+              self::$config = parse_ini_file('../../private/config.ini');
 
               try {
                  self::$db = new PDO('mysql:host=' . self::$config['db_hostname'] . '; dbname=' . self::$config['db_name'], self::$config['db_user'], self::$config['db_password']);
