@@ -39,11 +39,17 @@
 
 .btn-like-comment {
     margin-right: 25px;
+    text-decoration: none;
 }
 
 .badge-like-comment {
     background-color: #337ab7;
     font-size: 15px;
+}
+
+.react .active {
+    background-color: #fff;
+    color: #337ab7;
 }
 
 .formReply {

@@ -37,6 +37,7 @@
             </div>
             <!-- On stock l'id parent de chaque messsage auquel on répond -->
             <input type="hidden" name="parentId" value="<?php echo $comment['parentId'] ? $comment['parentId'] : $comment['idComment']  ?>" id="parentId">
+            <input type="hidden" name="likes" value="0">
         </form>
     </div>
 </div>

@@ -550,9 +550,24 @@
                 })
             })(jQuery);
 
-            function countChar(val) {
+            (function($){
+                $('.btn-like-comment').click(function(ev){
+                    ev.preventDefault();
+                    var $this = $(this); // On récupère le bouton Répondre sur lequel on a cliqué
+                    var $badge = $(this).find('.badge');
+                    var count = Number($badge.text());
+                    var active = $(this).hasClass('active');
+                    $badge.text(active ? count - 1 : count + 1);
+                    $(this).toggleClass('active');
+                    if (!active) {
+                        $this.css("color", "#043560");
+                    }
+                    else {
+                        $this.css("color", "#337ab7");
+                    }
 
-            }
+                })
+            })(jQuery);
 
             function toTop() {
                 document.body.scrollTop = 0;
