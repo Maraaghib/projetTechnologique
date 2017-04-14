@@ -154,7 +154,6 @@ $comments = $_SESSION['Messages'];
 <div class="row">
     <div class="col-xs-offset-1 col-xs-10">
         <?php $i = 0; foreach ($comments as $comment): ?>
-            <?php  ?>
             <!-- Afficher tous les commentaires -->
             <?php require 'oneComment.php'; ?>
             <?php foreach ($comment['replies'] as $comment): ?>

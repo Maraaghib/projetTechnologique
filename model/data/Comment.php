@@ -94,7 +94,7 @@ class Comment {
     public function sortReplies($a, $b) {
         $atime = strtotime($a['dateComment']);
         $btime = strtotime($b['dateComment']);
-        return $btime < $atime ? 1 : -1;
+        return $btime > $atime ? 1 : -1;
     }
 
     /**

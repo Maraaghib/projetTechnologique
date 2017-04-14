@@ -24,12 +24,12 @@
     $dateComment = str_replace($textEn,$textFr,$dateEn); // Les traduire en français
     // echo $dateFr;
 
-    if (isset($_POST["btnComment"])) {
+    if ((isset($_POST["btnComment"])) || (isset($_POST["sendReply"]))) {
         // echo "Je suis là "; die();
         $username = $_SESSION['User']->getLogin(); //"hamza", //$_SESSION['User']->getLogin(),
         $message  = $_POST['text-reply']; //"Commentaire par défaut", //$_POST['content'],
         $refPost   = 1; // Dans la page du post, je garde son id dans un input hidden, que je vais envoyer par post
-        $parentId = 0; //$_POST['parentId'];
+        $parentId = ($_POST["parentId"]) ? $_POST["parentId"] : 0; //$_POST['parentId'];
         // $likes = 18;
 
         $comment = Comment::newComment($username, $message, $dateComment, $refPost, $parentId); //, $likes
