@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="../dist/font-awesome-4.7.0/css/font-awesome.min.css">
     	<link rel="stylesheet" type="text/css" href="../dist/css/myStyle.css"/>
     	<link rel="stylesheet" type="text/css" href="../dist/css/forum.css"/>
+    	<link rel="stylesheet" type="text/css" href="../dist/css/services.css"/>
         <style media="screen">
             .nav-side-menu {
                 overflow: auto;
@@ -467,9 +468,13 @@
                         <a href="#"><i class="fa fa-handshake-o fa-lg"></i> Services <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="service">
-                        <li class="active">Service 1</li>
-                        <li>Service 2</li>
-                        <li>Service 3</li>
+                        <li><a href="index.php?p=aadom">Aides à domicile</li>
+                        <li><a href="index.php?p=sinf">soins infirmiers</a></li>
+                        <li><a href="index.php?p=loisir">Loisirs</a></li>
+                        <li><a href="index.php?p=shopping">Shopping</a></li>
+                        <li><a href="index.php?p=resto">Restauration</a></li>
+                        <li><a href="index.php?p=logement">Logement</a></li>
+                        <li><a href="index.php?p=transport">Transport</a></li>
                     </ul>
 
                     <li>
@@ -495,6 +500,27 @@
                 }
                 elseif (isset($_GET['p']) && $_GET['p'] == "profile") {
                     include 'pages/profile.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "aadom") {
+                    include 'pages/aadom.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "sinf") {
+                    include 'pages/sinf.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "loisir") {
+                    include 'pages/loisir.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "shopping") {
+                    include 'pages/shopping.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "resto") {
+                    include 'pages/resto.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "logement") {
+                    include 'pages/logement.php';
+                }
+                elseif (isset($_GET['p']) && $_GET['p'] == "transport") {
+                    include 'pages/transport.php';
                 }
                 else {
                     echo "Xët wii dé jissefuko !";
