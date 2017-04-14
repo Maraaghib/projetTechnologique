@@ -135,7 +135,7 @@ $comments = $_SESSION['Messages'];
 
 <form class="form" action="../../controller/forum.php" id="comment" method="post" style="margin-bottom: 20px;">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-offset-1 col-xs-10">
             <div class="form-group">
                 <label for="">Publier un nouveau message </label>
                 <textarea name="text-reply" class="form-control" rows="8" cols="80"></textarea>
@@ -152,7 +152,7 @@ $comments = $_SESSION['Messages'];
 
  //var_dump($_SESSION['Post']); die(); ?>
 <div class="row">
-    <div class="col-xs-offset-1 col-xs-10">
+    <div class="col-lg-offset-1 col-lg-10">
         <?php $i = 0; foreach ($comments as $comment): ?>
             <!-- Afficher tous les commentaires -->
             <?php require 'oneComment.php'; ?>
