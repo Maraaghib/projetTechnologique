@@ -6,6 +6,7 @@
 
 	if($user->existUser($email, $login)){
 		$isAdded = false;
+    }
 	else{
 		$isAdded = $user->addUser();
     }
