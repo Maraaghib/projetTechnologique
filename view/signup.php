@@ -39,15 +39,15 @@
                     <div class="col-xs-offset-1 col-xs-10">
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">Prénom:</label>
-                            <input type="text" class="form-control" id="prenom" name="prenom" value="" placeholder="Entrez votre prénom" required>
+                            <input type="text" class="form-control" id="prenom" name="prenom" value="" placeholder="Entrer votre prénom" required>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label control-label-lg">Nom:</label>
-                            <input type="text" class="form-control" id="nom" name="nom" value="" placeholder="Entrez votre nom" required>
+                            <input type="text" class="form-control" id="nom" name="nom" value="" placeholder="Entrer votre nom" required>
                         </div>
                         <div class="form-group form-group-lg">
                             <label id="label-lg" for="" class="control-label label-lg">E-mail:</label>
-                            <input type="email" class="form-control" id="email" name="email" value="" placeholder="Entrez votre e-mail" required>
+                            <input type="email" class="form-control" id="email" name="email" value="" placeholder="Entrer votre e-mail" required>
                         </div>
                         <div class="form-group form-group-lg" id="telPersoDiv">
                             <label id="label-lg" for="" class="control-label label-lg">Téléphone:</label>

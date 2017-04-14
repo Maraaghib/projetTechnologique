@@ -14,6 +14,16 @@
         <div class="container navigation">
             <div class="row navigation">
                <nav class="navbar navbar-default navbar-fixed-top">
+                   <!--<ol class="breadcrumb" style="float: left;">
+                       <li><a href="#"><img class="logo"></a></li>  On peut ajouter l'image via le background du CSS
+                   </ol>
+                   <div class="navbar-collapse collapse">
+                       <ul class="nav navbar-nav navbar-right">
+                           <li><a href="signup.php" class="btn btn-default navbar-btn" name="">Devenir bénévole</a><li>
+
+                       </ul>
+                   </div>-->
+
                     <div class="container-fluid">
                         <div class="navbar-header">
                             <a class="navbar-brand" href="home.php">
@@ -21,6 +31,9 @@
                             </a>
                         </div>
                         <ul class="nav navbar-nav">
+                            <!-- <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Page 1</a></li>
+                            <li><a href="#">Page 2</a></li> -->
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="signin.php" class="btn btn-default navbar-btn" id="cacher">Se connecter</a></li>
@@ -44,11 +57,27 @@
                     <div class="col-xs-6">
                         <div class="dropdown text-right">
                             <a href="signin.php" class="btn btn-default btn-lg large-btn" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</a>
+                            <!-- <button type="button" class="btn btn-default btn-lg large-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signin" name="signin"><span class="glyphicon glyphicon-log-in"></span> Connexion</button>
+                            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="signin">
+                                <li class="dropdown-header">En tant que:</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signin.php">Handicapé ou sénior</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signin.php">Bénévole</a></li>
+                            </ul> -->
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="dropdown text-left">
                             <a href="signup.php" class="btn btn-default btn-lg large-btn" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</a>
+                            <!-- <button type="button" class="btn btn-default btn-lg large-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="signup" name="signup"><span class="glyphicon glyphicon-user"></span> Inscription</button>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="signup">
+                                <li class="dropdown-header">En tant que:</li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signup.php">Handicapé ou sénior</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="signup.php">Bénévole</a></li>
+                            </ul> -->
                         </div>
                     </div>
                 </div>

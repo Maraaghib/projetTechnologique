@@ -5,6 +5,6 @@
         <title>Forum | Messages envoyés</title>
     </head>
     <body>
-        <h1>Cette page contient tous les messages que j'ai envoyés</h1>
+        <h1>Cette page contient tous les messages que j'ai envooyés</h1>
     </body>
 </html>

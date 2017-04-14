@@ -415,6 +415,7 @@
                                 <div class="col-md-8">
                                     <div class="" style="font-weight: bold; color: black;">
                                         <?php
+                                            // $gender = (($_SESSION['User']->getGender(), "Masculin") == 0) ? "Mr" : "Mme"; Coder la méthode getGender() et le reste
                                             echo "Mr " .$_SESSION['User']->getPrenom(). " " .$_SESSION['User']->getNom();
                                         ?>
                                     </div>
@@ -435,6 +436,9 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-- <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i> -->
             </div>
         </nav>
         <nav class="nav-side-menu">
@@ -517,6 +521,9 @@
                 }
                 elseif (isset($_GET['p']) && $_GET['p'] == "transport") {
                     include 'pages/transport.php';
+                }
+                else {
+                    echo "Xët wii dé jissefuko !";
                 }
             ?>
 
