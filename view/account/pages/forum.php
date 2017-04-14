@@ -47,6 +47,8 @@ if (!$post) {
 // echo(__DIR__."../../../"); die();
 // include('../../model/data/Comment.php');
 /*
+/*
+require('../../model/data/Comments.php');
 $commentCls = new Comments($DB, $opt = array());
 $comments = $commentCls->findAll($post->id);
 */
@@ -114,6 +116,7 @@ $comments = $_SESSION['Messages'];
 
 <h2><?php echo count($comments); ?> Commentaires</h2>
 
+
 <?php// if($errors): ?>
     <!-- <div class="alert alert-danger"> -->
         <!-- <strong>Impossible de poster votre commentaire pour les raisons suivantes:</strong> -->
@@ -134,7 +137,7 @@ $comments = $_SESSION['Messages'];
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label for="">Publier un nouveau message: </label>
+                <label for="">Publier un nouveau message </label>
                 <textarea name="text-reply" class="form-control" rows="8" cols="80"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="btnComment">Envoyer</button>
