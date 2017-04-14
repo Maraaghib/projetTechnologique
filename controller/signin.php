@@ -14,14 +14,13 @@
 
    if ($isConnected) {
        // Faire getUser($login) crée une session
-       $user->hydrate($user->getUser($login)); //User::newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password); // Crée une nouvelle instance de User avec des paramètres
+       $user->hydrate($user->getUser($login)); // Crée une nouvelle instance de User avec des paramètres
 
        $_SESSION['User'] = $user;
-    //    echo($_SESSION['User']->getPrenom()); die();
        header('Location: ../view/account/');
    }
    else {
-       header('Location: ../view/signin.php?error=true'); // Passer en GET l'/es erreur/s de connexion ???
+       header('Location: ../view/signin.php?error=true');
    }
 
 ?>

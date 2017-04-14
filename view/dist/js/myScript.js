@@ -6,7 +6,7 @@ var confPswDivClassName = confirmPasswordDiv.className;
 var password = document.getElementById("password");
 var confirmPassword = document.getElementById("confirmPassword");
 
-// Créer deux fonctions respectivement pour les blocc if (success) et pour les blocs else (error)
+// Créer deux fonctions respectivement pour les blocs if(success) et pour les blocs else(error)
 
 function actionForm(action) {
 	var homeForm = document.getElementById("homeForm");

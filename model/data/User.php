@@ -1,5 +1,6 @@
 <?php
    include_once('Database.php');
+
 // Classe utilisateur contenant les informations d'un utilisateur inscrit
 class User {
 
@@ -12,8 +13,11 @@ class User {
     private $password;
     private $avatar;
     private $error;
-    private $db; // = Database::getDBConnection(); // Se connecter à la base de données
+    private $db; // Se connecter à la base de données
 
+    // Constructeur par défaut
+    // Entrée : ø
+    // Sortie : ø
     function __construct() {
         $this->nom       = "empty";
         $this->prenom    = "empty";
@@ -26,6 +30,8 @@ class User {
     }
 
     // Simuler un constructeur avec des paramètres
+    // Entrée : informations personnelles de l'utilisateur
+    // Sortie : un nouvel utilisateur
     public static function newUser($nom, $prenom, $email, $dateNaiss, $telPerso, $login, $password, $avatar) {
         $instance = new self();
         $instance->setNom($nom);
@@ -69,6 +75,8 @@ class User {
     }
 
     // Ajoute un utilisateur et ses informations personnelles dans la base de données
+    // Entrée : ø
+    // Sortie : vrai si l'ajout s'est bien passé, faux sinon
     public function addUser() {
       $db = Database::getDBConnection();
       $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -119,14 +127,11 @@ class User {
         $query1->execute(['login' => $login]);
         $query2 = $db->prepare("SELECT password FROM user_account WHERE login = :login");
 
-      //   $query3 = "SELECT nom, prenom, email, dateNaiss, telPerso FROM user_account WHERE login = `".$login."`";
-
         $result1 = $query1->fetch();
         if ($result1) { // Si le login existe dans la base de données
             $query2->execute(['login' => $login]);
             $result2 = $query2->fetch();
             if (($result2) && (strcmp($result2["password"], $password) == 0)) {
-                //$result3 = $db->query($query3);
                 return true;
             }
             else {
@@ -142,10 +147,12 @@ class User {
         return true;
     }
 
-// A transférer dans la classe Database
+    // Récupère un utilisateur
+    // Entrée : login de l'utilisateur en question
+    // Sortie : toutes les informations de l'utilsateur
     public function getUser($login){
-        $db = Database::getDBConnection();
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      $db = Database::getDBConnection();
+      $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
       $query = $db->prepare("SELECT * FROM user_account WHERE login = :login");
       $query->execute(['login' => $login]);
       $infosUser = $query->fetch();
@@ -155,8 +162,8 @@ class User {
     // Retourne tous les utilisateur présents dans la base de données
     // Entrée : ø
     // Sortie : tous les utilisateurs
-    public function getUsers() {  // Fonction à revoir après !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        $db = Database::getDBConnection();
+    public function getUsers() {
+       $db = Database::getDBConnection();
        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
        $query = "SELECT * FROM user_account";
        $results = $db->query($query);

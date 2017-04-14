@@ -14,7 +14,7 @@
 
     <!-- Message -->
     <div class="col-xs-12 message">
-        <!-- Chaque bouton "Répondre" prend comme id celui du message il fait référence  -->
+        <!-- Chaque bouton "Répondre" prend comme id celui du message auquel il fait référence  -->
         <p>
             <?php echo $comment['message']; ?>
         </p>
@@ -26,7 +26,7 @@
         <a href="#" class="btn-reply-comment" <?php echo 'data-form="formReply' .$i. '" id="btn-reply-comment' .$i. '"'; ?> data-id="<?php echo $comment['parentId'] ? $comment['parentId'] : $comment['idComment']  ?>"<i class="fa fa-comment"></i> Répondre</a>
     </div>
 
-    <!-- Champ pou répondre -->
+    <!-- Champ pour répondre -->
     <div class="col-xs-12">
         <form <?php echo 'class="formReply formReply' .$i++. '"'; ?> action="../../controller/forum.php" method="post">
             <div class="form-group">
@@ -35,7 +35,7 @@
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg" name="sendReply">Envoyer</button>
             </div>
-            <!-- On stock l'id parent de chaque messsage auquel on répond -->
+            <!-- On stocke l'id parent de chaque messsage auquel on répond -->
             <input type="hidden" name="parentId" value="<?php echo $comment['parentId'] ? $comment['parentId'] : $comment['idComment']  ?>" id="parentId">
             <input type="hidden" name="likes" value="0">
         </form>

@@ -1,8 +1,7 @@
-
 <?php
 
    	include_once('data/User.php');
-   	include_once('data/Database.php');  // Peut-on supprimer cette ligne !!??
+   	include_once('data/Database.php');
 
 	if($user->existUser($email, $login)){
 		$isAdded = false;

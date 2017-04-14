@@ -4,8 +4,6 @@
 
     session_start();
 
-    // $account = $_SESSION['account'];
-
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
@@ -26,8 +24,8 @@
         header('Location: ../view/account/');
     }
     else {
-        // Pareille aussi: Message d'erreur
-        header('Location: ../view/signup.php?error=true'); // Passer en GET l'/es erreur/s de connexion ???
+        // Pareil aussi: message d'erreur
+        header('Location: ../view/signup.php?error=true');
     }
 
 ?>

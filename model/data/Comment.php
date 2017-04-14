@@ -1,8 +1,7 @@
 <?php
    include_once('Database.php');
-/**
-*
-*/
+
+// Classe commentaire avec le nom de l'utilisateur qui l'a posté, son message, la date du commentaire, la référence du post.
 class Comment {
 
     private $username;
@@ -10,37 +9,37 @@ class Comment {
     private $dateComment;
     private $refPost;
     private $parentId;
-    // private $likes;
-    // Tableau des messages d'erreurs de validation
-    // private $options = array(
-    //     'parent_error' => "Vous essayez de répondre à un commentaire qui n'existe pas"
-    // );
 
     public $errors = array();
 
+    // Constructeur par défaut
+    // Entrée : ø
+    // Sortie : ø
     public function __construct() {
-        // $db = $db;
-        // $this->options = array_merge($this->options, $options = []);
         $this->username     = "empty";
         $this->message      = "empty";
         $this->dateComment  = "empty";
         $this->refPost      = 1;
         $this->parentId     = 0;
-        // $this->likes        = 0;
     }
 
-    public static function newComment($username, $message, $dateComment, $refPost, $parentId) { // $likes
+    // Créé un nouveau commentaire
+    // Entrée : tableau contenant les données relatives au commentaire
+    // Sortie : le commentaire créé
+    public static function newComment($username, $message, $dateComment, $refPost, $parentId) {
         $instance = new self();
         $instance->setUsername($username);
         $instance->setMessage($message);
         $instance->setDateComment($dateComment);
         $instance->setRefPost($refPost);
         $instance->setParentId($parentId);
-        // $instance->setLikes($likes);
 
         return $instance;
     }
 
+    // Stocke les données dans le commentaire
+    // Entrée : tableau contenant les données relatives au commentaire
+    // Sortie : ø
     public function hydrate($donnees) {
         if (isset($donnees['username'])) {
             $this->username = $donnees['username'];
@@ -57,13 +56,11 @@ class Comment {
         if (isset($donnees['parentId'])) {
             $this->parentId = $donnees['parentId'];
         }
-        // if (isset($donnees['likes'])) {
-        //     $this->likes = $donnees['likes'];
-        // }
     }
-    /**
-    * Permet de récupérer les commentaires associés à un contenu
-    */
+
+    // Permet de récupérer les commentaires associés à un contenu
+    // Entrée : référence du post  
+    // Sortie : la liste des commentaires
     public function findAll($refPost) {
         $db = Database::getDBConnection2();
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -91,32 +88,24 @@ class Comment {
         return $comments;
     }
 
+
+    // Trie les commentaires en fonction de l'heure
+    // Entrée : ø
+    // Sortie : ø
     public function sortReplies($a, $b) {
         $atime = strtotime($a['dateComment']);
         $btime = strtotime($b['dateComment']);
         return $btime > $atime ? 1 : -1;
     }
 
-    /**
-    * Permet d sauvegarder un commentaire
-    */
+
+    // Permet de sauvegarder un commentaire
+    // Entrée : ø 
+    // Sortie : Vrai si le commentaire est bien inséré, faux sinon 
     public function savePost() {
         $db = Database::getDBConnection();
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $errors = [];
-
-        // Si on essaie de répondre à un message qui n'existe pas
-        // if(!empty($_POST['parentId'])) {
-        //     $query = $db->prepare("SELECT idComment FROM comments WHERE refPost = :refPost AND idComment = :idComment AND parentId = 0");
-        //     $query->execute([
-        //         'refPost'   => $this->getRefPost(),
-        //         'idComment' => $_POST['parentId'],
-        //     ]);
-        //     if($query->rowCount() <= 0) {
-        //         $this->errors['parent'] = $this->options['parent_error'];
-        //         return false;
-        //     }
-        // }
 
         $query1 = $db->prepare("INSERT INTO comments SET
             username = :username,
@@ -133,17 +122,6 @@ class Comment {
             'dateComment'  => $this->getDateComment(),
             'parentId' => $this->getParentId()
         ];
-
-        // $query2 = $db->prepare("INSERT INTO likes SET
-        //     username = :username,
-        //     refPost  = :refPost"
-        // );
-        //
-        // $data2 = [
-        //     'username' => $this->getUsername(),
-        //     'refPost'   => $this->getRefPost()
-        // ];
-        // $result2 = $query2->execute($data2);
 
         $result1 = $query1->execute($data1);
 
@@ -191,13 +169,5 @@ class Comment {
     public function getParentId(){
         return $this->parentId;
     }
-
-    // public function setLikes($likes) {
-    //     $this->likes = $likes;
-    // }
-    //
-    // public function getLikes(){
-    //     return $this->likes;
-    // }
 }
 ?>
